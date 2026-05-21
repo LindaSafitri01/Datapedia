@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\akunuser;
+use App\Models\janjitemu;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -11,12 +12,30 @@ class profileController extends Controller
     /**
      * Display a listing of the resource.
      */
-   public function index()
-{
-    $userId = session('user_id');
-    $user = akunuser::find($userId); // hanya ambil user yang login
-    return view('user.profile', compact('user'));
-}
+    // public function index()
+    // {
+    //     $userId = session('user_id');
+    //     $user = akunuser::find($userId); // hanya ambil user yang login
+    //     return view('user.profile', compact('user'));
+    // }
+
+    public function index()
+    {
+        $userId = session('user_id');
+        $user = akunuser::find($userId);
+
+        if (!$user) {
+            return redirect()->route('loginUser')
+                ->with('error', 'Silakan login terlebih dahulu.');
+        }
+
+        $jadwalUser = janjitemu::where('users_id', $userId)
+            ->latest()
+            ->take(3)
+            ->get();
+
+        return view('user.profile', compact('user', 'jadwalUser'));
+    }
 
     /**
      * Show the form for editing the specified resource.

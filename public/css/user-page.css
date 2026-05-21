@@ -1,9 +1,5 @@
 /* =========================================================
-   USER PAGE DESIGN SYSTEM - OPTIMIZED SAFE CSS
-   Fokus:
-   1) Visual diatur di CSS
-   2) Blade tetap aman untuk logic Laravel/Alpine/JS
-   3) Warna dan font seragam
+   USER PAGE DESIGN SYSTEM 
 ========================================================= */
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
 
@@ -80,8 +76,6 @@ body {
 
 /* =========================================================
    COMPATIBILITY LAYER
-   Menjaga Blade lama tetap seragam walaupun masih ada Tailwind warna.
-   Selector tetap dibatasi di .user-page agar tidak mengganggu halaman lain.
 ========================================================= */
 .user-page .text-blue-950,
 .user-page .text-blue-900,
@@ -176,7 +170,7 @@ body {
 }
 
 /* =========================================================
-   SCROLL ANIMATION - class lama tetap didukung
+   SCROLL ANIMATION
 ========================================================= */
 .scroll-progress {
     position: fixed;
@@ -232,8 +226,7 @@ body {
 .user-page .animate-float { animation: float 4s ease-in-out infinite; }
 
 /* =========================================================
-   STATISTIK LAYANAN - SEMANTIC SAFE STYLE
-   Hanya bekerja pada class up-stat-*.
+   STATISTIK LAYANAN 
 ========================================================= */
 .user-page .up-stat-section {
     isolation: isolate;
@@ -507,12 +500,316 @@ body {
 }
 
 /* =========================================================
-   LAYANAN 24 JAM - STABLE SCROLL SNAP CAROUSEL
-   Versi stabil, tidak memakai transform manual
+   PETUGAS BERPRESTASI
 ========================================================= */
 
+.user-page .up-achievement-panel {
+    width: 100%;
+    max-width: 56rem;
+    padding: 1rem;
+    background: rgba(248, 250, 252, 0.5);
+    border: 1px solid #f1f5f9;
+    border-radius: 2rem;
+}
+
+.user-page .up-achievement-header {
+    margin-bottom: 0.75rem;
+    text-align: center;
+}
+
+.user-page .up-achievement-title-wrap {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0 1rem 0.25rem;
+    border-bottom: 2px solid #ffffff;
+}
+
+.user-page .up-achievement-star {
+    color: #eab308;
+    font-size: 15px;
+}
+
+.user-page .up-achievement-title {
+    color: #002B6A;
+    font-size: 15px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    line-height: 1.2;
+}
+
+.user-page .up-achievement-title span {
+    color: var(--up-blue);
+}
+
+.user-page .up-achievement-separator {
+    margin: 0 0.25rem;
+    color: #cbd5e1;
+    font-size: 10px;
+}
+
+.user-page .up-achievement-period {
+    color: #94a3b8;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+}
+
+.user-page .up-achievement-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.user-page .up-achievement-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0.75rem 2rem 0.75rem 0.75rem;
+    background: #ffffff;
+    border: 1px solid #f1f5f9;
+    border-radius: 1rem;
+    transition: border-color 300ms ease, box-shadow 300ms ease, transform 300ms ease;
+}
+
+.user-page .up-achievement-card:hover {
+    border-color: var(--up-blue-2);
+    box-shadow: 0 20px 40px -15px rgba(0, 43, 106, 0.1);
+}
+
+@media (min-width: 640px) {
+    .user-page .up-achievement-card {
+        width: 350px;
+    }
+}
+
+.user-page .up-achievement-photo-wrap {
+    position: relative;
+    flex-shrink: 0;
+    margin-left: 0.25rem;
+}
+
+.user-page .up-achievement-photo-frame {
+    position: relative;
+    width: 4rem;
+    height: 4rem;
+    overflow: hidden;
+    border: 2px solid #ffffff;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 18px rgba(15, 23, 42, 0.12);
+    outline: 1px solid #f1f5f9;
+    transition: outline-color 300ms ease;
+}
+
+.user-page .up-achievement-card:hover .up-achievement-photo-frame {
+    outline-color: #dbeafe;
+}
+
+.user-page .up-achievement-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 500ms ease;
+}
+
+.user-page .up-achievement-card:hover .up-achievement-photo {
+    transform: scale(1.1);
+}
+
+.user-page .up-achievement-photo-empty {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eff6ff;
+    color: #002B6A;
+    font-size: 1.25rem;
+    font-weight: 900;
+}
+
+.user-page .up-achievement-info {
+    flex: 1;
+    min-width: 0;
+    padding-left: 1.25rem;
+}
+
+.user-page .up-achievement-label {
+    margin-bottom: 0.25rem;
+    color: var(--up-blue);
+    font-size: 8px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    line-height: 1;
+}
+
+.user-page .up-achievement-name {
+    max-width: 11rem;
+    overflow: hidden;
+    color: #002B6A;
+    font-size: 14px;
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    transition: color 300ms ease;
+}
+
+.user-page .up-achievement-card:hover .up-achievement-name {
+    color: var(--up-blue);
+}
+
+.user-page .up-achievement-position {
+    max-width: 11rem;
+    margin-top: 0.125rem;
+    overflow: hidden;
+    color: #94a3b8;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.user-page .up-achievement-certificate-wrap {
+    margin-top: 0.75rem;
+}
+
+.user-page .up-achievement-certificate {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    color: #002B6A;
+    font-size: 9px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    transition: color 300ms ease;
+}
+
+.user-page .up-achievement-certificate span {
+    padding-bottom: 0.125rem;
+    border-bottom: 2px solid #eff6ff;
+    transition: border-color 300ms ease;
+}
+
+.user-page .up-achievement-certificate:hover {
+    color: var(--up-blue);
+}
+
+.user-page .up-achievement-certificate:hover span {
+    border-color: var(--up-blue);
+}
+
+.user-page .up-achievement-certificate-icon {
+    width: 0.625rem;
+    height: 0.625rem;
+    transition: transform 300ms ease;
+}
+
+.user-page .up-achievement-certificate:hover .up-achievement-certificate-icon {
+    transform: translateX(0.25rem);
+}
+
+.user-page .up-achievement-medal {
+    position: absolute;
+    top: 0;
+    right: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 500ms ease;
+}
+
+.user-page .up-achievement-card:hover .up-achievement-medal {
+    transform: translateY(-0.25rem);
+}
+
+.user-page .up-achievement-medal-shape {
+    position: relative;
+}
+
+.user-page .up-achievement-ribbon {
+    width: 2.5rem;
+    height: 2.5rem;
+    filter: drop-shadow(0 1px 1px rgba(15, 23, 42, 0.12));
+}
+
+.user-page .up-achievement-medal-circle-wrap {
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.user-page .up-achievement-medal-circle {
+    position: relative;
+    width: 1.75rem;
+    height: 1.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #fde68a;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #fde047, #eab308, #ca8a04);
+    box-shadow: 0 6px 12px rgba(15, 23, 42, 0.16);
+}
+
+.user-page .up-achievement-medal-inner {
+    position: absolute;
+    inset: 0.125rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 999px;
+    opacity: 0.5;
+}
+
+.user-page .up-achievement-medal-star {
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: 700;
+    text-shadow: 0 1px 2px rgba(15, 23, 42, 0.25);
+    transition: transform 300ms ease;
+}
+
+.user-page .up-achievement-card:hover .up-achievement-medal-star {
+    transform: scale(1.25);
+}
+
+.user-page .up-achievement-medal-period {
+    margin-top: 1rem;
+    color: #94a3b8;
+    font-size: 7px;
+    font-weight: 900;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    line-height: 1;
+}
+
+.user-page .up-achievement-empty {
+    padding: 1.5rem 0;
+    color: #cbd5e1;
+    font-size: 10px;
+    font-weight: 900;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-style: italic;
+}
+
 /* =========================================================
-   LAYANAN 24 JAM - STABLE AUTO SCROLL SNAP CAROUSEL
+   LAYANAN 24 JAM
 ========================================================= */
 
 .user-page .service24-slider-wrap {
@@ -807,7 +1104,7 @@ iframe { transition: opacity .3s ease; }
 }
 
 /* =========================================================
-   LEGACY SUPPORT - dibuat tidak agresif
+   LEGACY SUPPORT
 ========================================================= */
 .stat-counter-card,
 .layanan-utama-card,

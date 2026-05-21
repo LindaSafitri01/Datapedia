@@ -176,6 +176,22 @@
           @enderror
         </div>
 
+      <!-- Email Input -->
+        <div class="mb-6 fade-in-up delay-200">
+          <label for="email" class="block text-primary font-medium text-sm mb-2">Email</label>
+          <div class="relative">
+            <div class="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400">
+              <span>@</span>
+            </div>
+            <input type="email" name="email" id="email" placeholder="example@gmail.com"
+                   class="w-full py-4 px-12 rounded-xl bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary focus:bg-white input-focus transition-all duration-300 text-gray-700"
+                   >
+          </div>
+          @error('email')
+             <p class="text-red-500 text-sm mt-2 ml-1">{{ $message }}</p>
+          @enderror
+        </div>
+
         <!-- Username Input -->
         <div class="mb-8 fade-in-up delay-300">
           <label for="nama" class="block text-primary font-medium text-sm mb-2">Username </label>
@@ -192,28 +208,28 @@
           @enderror
         </div>
 
-        <!-- Username Input -->
+        <!-- Password Input -->
         <div class="mb-8 fade-in-up delay-300">
-    <label for="password" class="block text-primary font-medium text-sm mb-2">Password</label>
-    <div class="relative">
-        {{-- Icon Kunci --}}
-        <div class="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-            </svg>
-        </div>
+          <label for="password" class="block text-primary font-medium text-sm mb-2">Password</label>
+          <div class="relative">
+              {{-- Icon Kunci --}}
+              <div class="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                  </svg>
+              </div>
 
-        {{-- Input Password --}}
-        <input type="password" name="password" id="password" placeholder="Password"
-               class="w-full py-4 px-12 pr-12 rounded-xl bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary focus:bg-white input-focus transition-all duration-300 text-gray-700">
+              {{-- Input Password --}}
+              <input type="password" name="password" id="password" placeholder="Password"
+                    class="w-full py-4 px-12 pr-12 rounded-xl bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary focus:bg-white input-focus transition-all duration-300 text-gray-700">
 
-    </div>
+          </div>
 
-    @error('password')
-    <p class="text-red-500 text-sm mt-2 ml-1">{{ $message }}</p>
-    @enderror
-</div>
+          @error('password')
+          <p class="text-red-500 text-sm mt-2 ml-1">{{ $message }}</p>
+          @enderror
+      </div>
 
 
         <!-- Login Button -->

@@ -91,27 +91,37 @@
                             </td>
 
                             <td class="p-3 border border-gray-200">
-                                {{ $item->keahlian }}
+                                @if($item->bidangKeahlian->count())
+                                    <div class="flex flex-wrap gap-1">
+                                        @foreach($item->bidangKeahlian as $bidang)
+                                            <span class="inline-block px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded">
+                                                {{ $bidang->nama_bidang }}
+                                            </span>
+                                        @endforeach
+                                    </div>
+                                @else
+                                    <span class="text-gray-500">-</span>
+                                @endif
                             </td>
 
                             <td class="p-3 border border-gray-200 align-top">
-    @if ($item->status == 'tersedia')
-        <span class="inline-flex items-center px-2 py-1 bg-green-100 text-green-800 text-sm font-medium rounded">
-            ✅ Tersedia
-        </span>
-                @elseif ($item->status == 'tidak tersedia')
-                    <div class="space-y-1">
-                        <span class="inline-flex items-center px-2 py-1 bg-red-100 text-red-800 text-sm font-medium rounded">
-                            ❌ Tidak Tersedia
-                        </span>
-                        <p class="text-sm text-gray-700"><strong>Alasan:</strong> {{ $item->alasan }}</p>
-                        <p class="text-sm text-gray-700"><strong>Dari:</strong> {{ \Carbon\Carbon::parse($item->tanggal_mulai_tidak_tersedia)->translatedFormat('d F Y') }}</p>
-                        <p class="text-sm text-gray-700"><strong>Sampai:</strong> {{ \Carbon\Carbon::parse($item->tanggal_selesai_tidak_tersedia)->translatedFormat('d F Y') }}</p>
-                    </div>
-                @else
-                    <span class="text-gray-500 italic text-sm">Belum diatur</span>
-                @endif
-            </td>
+                                @if ($item->status == 'tersedia')
+                                    <span class="inline-flex items-center px-2 py-1 bg-green-100 text-green-800 text-sm font-medium rounded">
+                                        ✅ Tersedia
+                                    </span>
+                                @elseif ($item->status == 'tidak tersedia')
+                                    <div class="space-y-1">
+                                        <span class="inline-flex items-center px-2 py-1 bg-red-100 text-red-800 text-sm font-medium rounded">
+                                            ❌ Tidak Tersedia
+                                        </span>
+                                        <p class="text-sm text-gray-700"><strong>Alasan:</strong> {{ $item->alasan }}</p>
+                                        <p class="text-sm text-gray-700"><strong>Dari:</strong> {{ \Carbon\Carbon::parse($item->tanggal_mulai_tidak_tersedia)->translatedFormat('d F Y') }}</p>
+                                        <p class="text-sm text-gray-700"><strong>Sampai:</strong> {{ \Carbon\Carbon::parse($item->tanggal_selesai_tidak_tersedia)->translatedFormat('d F Y') }}</p>
+                                    </div>
+                                @else
+                                    <span class="text-gray-500 italic text-sm">Belum diatur</span>
+                                @endif
+                            </td>
 
 
                                 <td class="p-3 border border-gray-200">

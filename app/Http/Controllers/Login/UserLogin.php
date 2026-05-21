@@ -172,6 +172,7 @@ class UserLogin extends Controller
     $request->validate([
         'no_hp' => 'required|unique:users,no_hp|regex:/^62[0-9]{9,12}$/',
         'nama' => 'required|string|min:2',
+        'email' => 'required|email|max:255|unique:users,email',
         'password' => 'required|string|min:5',
     ], [
         'no_hp.required' => 'Nomor Handphone Wajib Diisi',
@@ -179,6 +180,8 @@ class UserLogin extends Controller
         'no_hp.regex' => 'Nomor Handphone Salah',
         'nama.required' => 'Username Wajib Diisi',
         'nama.min' => 'Username Harus Lebih Dari 2 karakter',
+        'email.email' => 'Format email tidak valid',
+        'email.unique' => 'Email sudah digunakan',
         'password.required' => 'Password Wajib Diisi',
         'password.min' => 'Password Harus Lebih Dari 5 karakter',
     ]);
@@ -186,6 +189,7 @@ class UserLogin extends Controller
     $data = [
         'no_hp' => $request->no_hp,
         'nama' => $request->nama,
+        'email' => $request->email,
         'password' => Hash::make($request->password),
     ];
 

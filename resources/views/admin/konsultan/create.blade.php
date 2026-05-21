@@ -55,27 +55,68 @@
             </div>
 
             <div class="mb-4">
-                <label for="posisi" class="block text-gray-700 font-medium mb-2">Posisi Di BPS</label>
-                <input type="text" name="posisi" placeholder="Masukkan posisi" id="posisi" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300" value="{{ old('posisi') }}" required>
+                <label for="posisi" class="block text-gray-700 font-medium mb-2">
+                    Posisi Di BPS
+                </label>
 
-                    @error('posisi')
+                <select
+                    name="posisi"
+                    id="posisi"
+                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300"
+                    required
+                >
+                    <option value="">Pilih Posisi</option>
 
-                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                    @foreach ($daftarPosisi as $kategori => $items)
+                        <optgroup label="{{ $kategori }}">
+                            @foreach ($items as $posisi)
+                                <option value="{{ $posisi }}" {{ old('posisi') == $posisi ? 'selected' : '' }}>
+                                    {{ $posisi }}
+                                </option>
+                            @endforeach
+                        </optgroup>
+                    @endforeach
+                </select>
+
+                @error('posisi')
+                    <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                 @enderror
             </div>
 
             <div class="mb-4">
-                <label for="keahlian" class="block text-gray-700 font-medium mb-2">Bidang Keahlian Konsultan</label>
-                <input type="text" name="keahlian" placeholder="Masukkan keahlian" id="keahlian" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300" value="{{ old('keahlian') }}" required>
+                <label class="block text-gray-700 font-medium mb-2">
+                    Bidang Keahlian
+                </label>
 
-                    @error('keahlian')
+                <div class="grid grid-cols-2 gap-2">
+                    @foreach ($bidangKeahlian as $bidang)
+                        <label class="flex items-center gap-2 px-3 py-2 border rounded-lg cursor-pointer hover:bg-blue-50 hover:border-blue-300 transition">
+                            <input
+                                type="checkbox"
+                                name="bidang_keahlian_id[]"
+                                value="{{ $bidang->id }}"
+                                class="rounded border-gray-300 text-blue-600 focus:ring-blue-300"
+                                {{ in_array($bidang->id, old('bidang_keahlian_id', [])) ? 'checked' : '' }}
+                            >
 
-                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                            <span class="text-sm font-medium text-gray-700 truncate">
+                                {{ $bidang->nama_bidang }}
+                            </span>
+                        </label>
+                    @endforeach
+                </div>
+
+                @error('bidang_keahlian_id')
+                    <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                @enderror
+
+                @error('bidang_keahlian_id.*')
+                    <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                 @enderror
             </div>
 
             <div class="mb-4">
-                <label for="password" class="block text-gray-700 font-medium mb-2">Password</label>
+                <label for="password" class="block text-gray-700 font-medium mb-2">Password Konsultan</label>
                 <input type="password" name="password" placeholder="Masukkan Password" id="password" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300" required>
 
                     @error('password')

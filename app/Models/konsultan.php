@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\BidangKeahlian;
 
 class konsultan extends Model
 {
@@ -40,5 +41,15 @@ class konsultan extends Model
     {
         return $this->hasMany(PetugasBerprestasi::class, 'konsultan_id');
     }
+
+    public function bidangKeahlian()
+    {
+        return $this->belongsToMany(
+            BidangKeahlian::class,
+            'bidang_keahlian_konsultan',
+            'konsultan_id',
+            'bidang_keahlian_id'
+        );
+    }    
 
 }

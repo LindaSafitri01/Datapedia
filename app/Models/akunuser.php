@@ -16,8 +16,9 @@ class akunuser extends Authenticatable
 
     protected $fillable = [
         "nama",
+        "email",
         "no_hp",
-        "password",
+        "password",    
     ];
 
     protected $hidden = ['password', 'remember_token'];

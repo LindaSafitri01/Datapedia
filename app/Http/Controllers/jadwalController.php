@@ -13,13 +13,14 @@ class jadwalController extends Controller
 {
     public function index()
     {
-        $janjiTemu = janjitemu::with('user', 'jadwal.konsultan')->get();
+        $janjiTemu = janjitemu::with('user', 'jadwal.konsultan')
+            ->paginate(10);            
         $konsultans = konsultan::where('status', 'tersedia')->get();
 
         return view('admin.jadwalAdmin.index', compact('janjiTemu', 'konsultans'));
     }
 
-   public function scheduleAndApprove(Request $request, $id)
+    public function scheduleAndApprove(Request $request, $id)
     {
         // Validasi input dari admin
         $request->validate([
@@ -116,6 +117,11 @@ class jadwalController extends Controller
         $request->validate(['link_zoom' => 'required|url',]);
 
         $janjiTemu = janjitemu::with(['user', 'jadwal.konsultan'])->findOrFail($id);
+
+        // Simpan link Zoom ke database
+        $janjiTemu->update([
+            'zoom_link' => $request->link_zoom,
+        ]);
 
         $namaUser = $janjiTemu->user->nama;
         $no_hp = $janjiTemu->user->no_hp;

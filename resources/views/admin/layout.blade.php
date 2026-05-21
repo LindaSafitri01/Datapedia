@@ -355,6 +355,12 @@
           <i class="fad fa-chart-pie text-xs mr-2"></i>
           Petugas Berprestasi
         </a>
+
+        <a href="{{ route('bidang-keahlian.index') }}"
+          class="mb-3 capitalize font-medium text-sm hover:text-blue-600 transition ease-in-out duration-500">
+          <i class="fad fa-chart-pie text-xs mr-2"></i>
+          Bidang Keahlian
+        </a>
         <!-- end link -->
 
 
@@ -391,12 +397,6 @@
           class="mb-3 capitalize font-medium text-sm hover:text-blue-600 transition ease-in-out duration-500">
           <i class="fad fa-comments text-xs mr-2"></i>
          Jam Operasional
-        </a>
-
-        <a href="{{ route('grafik.index') }}"
-          class="mb-3 capitalize font-medium text-sm hover:text-blue-600 transition ease-in-out duration-500">
-          <i class="fad fa-comments text-xs mr-2"></i>
-         Grafik Konsultasi
         </a>
 
         <a href="{{ route('adminKonsultasi.create') }}"
@@ -495,6 +495,19 @@
 
         </a>
 
+        <a href="{{ route('survei-layanan.index') }}"
+          class="flex items-start mb-3 capitalize font-medium text-sm hover:text-blue-600 transition ease-in-out duration-500 group">
+          
+            <div class="w-5 flex-shrink-0 mr-2">
+              <i class="fad fa-chart-pie text-xs mt-1 transition-all duration-500"></i>
+            </div>
+            
+            <span class="leading-tight">
+              Survei Kepuasan Masyarakat
+            </span>
+
+        </a>
+
         <p class="uppercase text-xs text-blue-600 mb-4 mt-4 tracking-wider">FAQ</p>
 
         <!-- link -->
@@ -508,6 +521,15 @@
           class="mb-3 capitalize font-medium text-sm hover:text-blue-600 transition ease-in-out duration-500">
           <i class="fad fa-text text-xs mr-2"></i>
           Frequently Ask Question
+        </a>
+
+        <p class="uppercase text-xs text-blue-600 mb-4 mt-4 tracking-wider">Navigasi</p>
+
+        <!-- link -->
+        <a href="{{ route('footer-item.index') }}"
+          class="mb-3 capitalize font-medium text-sm hover:text-blue-600 transition ease-in-out duration-500">
+          <i class="fad fa-text text-xs mr-2"></i>
+          Footer Item
         </a>
 
         <p class="uppercase text-xs text-gray-600 mb-4 mt-4 tracking-wider">Logout</p>

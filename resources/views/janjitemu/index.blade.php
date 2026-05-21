@@ -191,55 +191,243 @@
             <form class="p-8 space-y-6" method="POST" action="{{ route('janjitemu.store') }}" id="janjiTemuForm">
                 @csrf
 
-                <!-- Alamat -->
-                <div class="form-floating">
-                    <textarea
-                        id="alamat"
-                        name="alamat"
-                        placeholder=""
-                        rows="3"
-                        class="w-full px-3 py-3 border-2 border-gray-200 rounded-lg focus:border-primary focus:ring-0 focus:outline-none transition-colors resize-none"
-                        required
-                    ></textarea>
-                    <label for="alamat">Alamat Lengkap</label>
-                    @error('alamat')
-                         <p class="text-red-600 text-sm">{{ $message }}</p>
-                    @enderror
+                {{-- Nama dari user --}}
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                        Nama
+                    </label>
+                    <input type="text" value="{{ $user->nama ?? '-' }}" class="w-full px-3 py-3 border-2 border-gray-200 rounded-lg bg-gray-100 text-gray-700 cursor-not-allowed"readonly>
                 </div>
 
-                <!-- Keperluan -->
-                <div class="form-floating">
+                {{-- Email dari user --}}
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        value="{{ $user->email ?? '-' }}"
+                        class="w-full px-3 py-3 border-2 border-gray-200 rounded-lg bg-gray-100 text-gray-700 cursor-not-allowed"
+                        readonly
+                    >
+                </div>
+
+                {{-- Instansi / Lembaga --}}
+                <div>
+                    <label for="instansi_lembaga" class="block text-sm font-medium text-gray-700 mb-2">
+                        Instansi / Lembaga
+                    </label>
+
                     <input
                         type="text"
-                        id="keperluan"
-                        name="keperluan"
-                        placeholder=" "
+                        id="instansi_lembaga"
+                        name="instansi_lembaga"
+                        value="{{ old('instansi_lembaga') }}"
+                        placeholder="Contoh: BPS Provinsi Kepulauan Bangka Belitung"
                         class="w-full px-3 py-3 border-2 border-gray-200 rounded-lg focus:border-primary focus:ring-0 focus:outline-none transition-colors"
                         required
-                    />
-                    <label for="keperluan">Keperluan</label>
-                    @error('keperluan')
-                         <p class="text-red-600 text-sm">{{ $message }}</p>
+                    >
+
+                    @error('instansi_lembaga')
+                        <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
                     @enderror
                 </div>
 
-                <!-- Tanggal -->
-                <div class="form-floating">
+                {{-- Pilihan Pertemuan: Online / Offline --}}
+                <div class="space-y-3">
+                    <label class="block text-sm font-medium text-gray-700 mb-3">
+                        Pilihan Pertemuan
+                    </label>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+                        {{-- Online --}}
+                        <label class="flex items-center p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-primary/50 transition-colors group">
+                            <input
+                                type="radio"
+                                name="jenis"
+                                value="online"
+                                class="radio-custom mr-3"
+                                {{ old('jenis') == 'online' ? 'checked' : '' }}
+                                required
+                            >
+
+                            <div class="flex items-center">
+                                <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                </svg>
+
+                                <span class="font-medium text-gray-700 group-hover:text-primary transition-colors">
+                                    Daring/Online
+                                </span>
+                            </div>
+                        </label>
+
+                        {{-- Offline --}}
+                        <label class="flex items-center p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-primary/50 transition-colors group">
+                            <input
+                                type="radio"
+                                name="jenis"
+                                value="offline"
+                                class="radio-custom mr-3"
+                                {{ old('jenis') == 'offline' ? 'checked' : '' }}
+                                required
+                            >
+
+                            <div class="flex items-center">
+                                <svg class="w-5 h-5 text-blue-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                                </svg>
+
+                                <span class="font-medium text-gray-700 group-hover:text-primary transition-colors">
+                                    Kunjungan langsung/Offline
+                                </span>
+                            </div>
+                        </label>
+
+                    </div>
+
+                    @error('jenis')
+                        <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+                    @enderror
+                </div>
+
+                {{-- Jenis Layanan --}}
+                @php
+                    $layananOptions = [
+                        'Perpustakaan',
+                        'Konsultasi Statistik',
+                        'Penjualan Produk Statistik',
+                        'Rekomendasi Kegiatan Statistik',
+                        'lainnya',
+                    ];
+                @endphp
+
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">
+                        Jenis Layanan <span class="text-red-500">*</span>
+                    </label>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2">
+                        @foreach($layananOptions as $option)
+                            <label class="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
+                                <input
+                                    type="checkbox"
+                                    name="layanan_dibutuhkan[]"
+                                    value="{{ $option }}"
+                                    class="w-4 h-4 rounded border-gray-300 accent-primary cursor-pointer"
+                                    {{ in_array($option, old('layanan_dibutuhkan', [])) ? 'checked' : '' }}
+                                >
+
+                                <span>{{ $option }}</span>
+                            </label>
+                        @endforeach
+                    </div>
+
+                    @error('layanan_dibutuhkan')
+                        <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+                    @enderror
+
+                    @error('layanan_dibutuhkan.*')
+                        <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+                    @enderror
+                </div>
+
+                {{-- Tujuan Pertemuan --}}
+                @php
+                    $keperluanOptions = [
+                        'Tugas Sekolah/Kuliah',
+                        'Perencanaan',
+                        'Bekerja',
+                        'Skripsi/Tesis/Disertasi',
+                        'Evaluasi',
+                        'Ruang Bermain Anak',
+                        'Penelitian',
+                        'Diskusi',
+                        'Lainnya',
+                    ];
+                @endphp
+
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">
+                        Tujuan Pertemuan <span class="text-red-500">*</span>
+                    </label>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-2">
+                        @foreach($keperluanOptions as $option)
+                            <label class="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
+                                <input
+                                    type="checkbox"
+                                    name="keperluan_data[]"
+                                    value="{{ $option }}"
+                                    class="w-4 h-4 rounded border-gray-300 accent-primary cursor-pointer"
+                                    {{ in_array($option, old('keperluan_data', [])) ? 'checked' : '' }}
+                                >
+
+                                <span>{{ $option }}</span>
+                            </label>
+                        @endforeach
+                    </div>
+
+                    @error('keperluan_data')
+                        <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+                    @enderror
+
+                    @error('keperluan_data.*')
+                        <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+                    @enderror
+                </div>
+
+                {{-- Data yang Diminta --}}
+                <div>
+                    <label for="data_diminta" class="block text-sm font-medium text-gray-700 mb-2">
+                        Data yang Diminta
+                    </label>
+
+                    <textarea
+                        id="data_diminta"
+                        name="data_diminta"
+                        rows="4"
+                        placeholder="Tuliskan data yang ingin diminta..."
+                        class="w-full px-3 py-3 border-2 border-gray-200 rounded-lg focus:border-primary focus:ring-0 focus:outline-none transition-colors resize-none"
+                        required
+                    >{{ old('data_diminta') }}</textarea>
+
+                    @error('data_diminta')
+                        <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+                    @enderror
+                </div>
+
+                {{-- Pilihan Hari --}}
+                <div>
+                    <label for="tanggal" class="block text-sm font-medium text-gray-700 mb-2">
+                        Pilihan Hari
+                    </label>
+
                     <input
                         type="date"
                         id="tanggal"
-                        min="{{ old('tanggal', now()->format('Y-m-d')) }}"
                         name="tanggal"
+                        min="{{ now()->format('Y-m-d') }}"
+                        value="{{ old('tanggal') }}"
                         class="w-full px-3 py-3 border-2 border-gray-200 rounded-lg focus:border-primary focus:ring-0 focus:outline-none transition-colors"
                         required
-                    />
-                    <label for="tanggal">Tanggal</label>
+                    >
+
                     @error('tanggal')
-                         <p class="text-red-600 text-sm">{{ $message }}</p>
+                        <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
                     @enderror
                 </div>
 
-                <div class="form-floating">
+                {{-- Pilihan Jam --}}
+                <div>
+                    <label for="jam" class="block text-sm font-medium text-gray-700 mb-2">
+                        Pilihan Jam
+                    </label>
+
                     <input
                         type="time"
                         id="jam"
@@ -247,52 +435,52 @@
                         value="{{ old('jam') }}"
                         class="w-full px-3 py-3 border-2 border-gray-200 rounded-lg focus:border-primary focus:ring-0 focus:outline-none transition-colors"
                         required
-                    />
-                    <label for="jam">Jam</label>
+                    >
+
                     @error('jam')
-                        <p class="text-red-600 text-sm">{{ $message }}</p>
+                        <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
                     @enderror
                 </div>
 
+                {{-- Jumlah Orang --}}
+                <div>
+                    <label for="jumlah_orang" class="block text-sm font-medium text-gray-700 mb-2">
+                        Jumlah Orang yang Akan Datang
+                    </label>
 
-                <!-- Jenis -->
-                <div class="space-y-3">
-                    <label class="block text-sm font-medium text-gray-700 mb-3">Jenis Layanan</label>
-                    <div class="grid grid-cols-1 gap-4">
+                    <input
+                        type="number"
+                        id="jumlah_orang"
+                        name="jumlah_orang"
+                        value="{{ old('jumlah_orang', 1) }}"
+                        min="1"
+                        max="50"
+                        class="w-full px-3 py-3 border-2 border-gray-200 rounded-lg focus:border-primary focus:ring-0 focus:outline-none transition-colors"
+                        required
+                    >
 
-                        <label class="flex items-center p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-primary/50 transition-colors group">
-                            <input
-                                type="radio" name="jenis" value="offline" class="radio-custom mr-3" required
-                            />
-                            <div class="flex items-center">
-                                <svg class="w-5 h-5 text-blue-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
-                                </svg>
-                                <span class="font-medium text-gray-700 group-hover:text-primary transition-colors">Offline</span>
-                            </div>
-                        </label>
-                    </div>
-                    @error('jenis')
-                         <p class="text-red-600 text-sm">{{ $message }}</p>
+                    @error('jumlah_orang')
+                        <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
                     @enderror
                 </div>
 
-                <!-- Submit Button -->
+                {{-- Submit --}}
                 <div class="pt-4">
                     <button
-                        onclick="this.disabled=true;this.form.submit();"
                         type="submit"
                         id="submitBtn"
                         class="w-full bg-gradient-to-r from-primary to-primary-light text-white font-semibold py-4 px-6 rounded-lg hover:from-primary-dark hover:to-primary transform hover:scale-[1.02] transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2"
                     >
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3a2 2 0 012-2h4a2 2 0 012 2v4m-6 9l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8 7V3a2 2 0 012-2h4a2 2 0 012 2v4m-6 9l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
+
                         <span>Buat Janji Temu</span>
                     </button>
                 </div>
 
-                <!-- Info -->
+                {{-- Info --}}
                 <div class="text-center pt-4 border-t border-gray-100">
                     <p class="text-sm text-gray-500">
                         Dengan menyimpan data, Anda menyetujui syarat dan ketentuan yang berlaku
@@ -362,134 +550,63 @@
 @endif
 
     <script>
-        // Form handling
-        document.addEventListener('DOMContentLoaded', function() {
-            const form = document.getElementById('janjiTemuForm');
+        document.getElementById('janjiTemuForm')?.addEventListener('submit', function () {
             const submitBtn = document.getElementById('submitBtn');
-            const successAlert = document.getElementById('successAlert');
 
-            // Form submission
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-
-                // Validate form
-                const formData = new FormData(form);
-                let isValid = true;
-
-                // Check required fields
-                for (let [key, value] of formData.entries()) {
-                    if (!value.toString().trim()) {
-                        isValid = false;
-                        break;
-                    }
-                }
-
-                if (!isValid) {
-                    showErrorAlert('Mohon lengkapi semua field yang diperlukan.');
-                    return;
-                }
-
-                // Show loading state
-                showLoadingState();
-
-                // Simulate API call (replace with actual Laravel form submission)
-                setTimeout(() => {
-                    // Hide loading state
-                    hideLoadingState();
-
-                    // Show success alert
-                    showSuccessAlert();
-
-                    // For actual Laravel implementation, you would submit the form normally:
-                    // form.submit();
-                }, 1500);
-            });
-
-            // Phone number formatting
-            const phoneInput = document.getElementById('no_hp');
-            phoneInput.addEventListener('input', function(e) {
-                let value = e.target.value.replace(/\D/g, '');
-                if (value.startsWith('0')) {
-                    value = '62' + value.substring(1);
-                }
-                e.target.value = value;
-            });
-        });
-
-        function showLoadingState() {
-            const submitBtn = document.getElementById('submitBtn');
             submitBtn.disabled = true;
             submitBtn.innerHTML = `
                 <svg class="w-5 h-5 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                 </svg>
                 <span>Memproses...</span>
             `;
-        }
-
-        function hideLoadingState() {
-            const submitBtn = document.getElementById('submitBtn');
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = `
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3a2 2 0 012-2h4a2 2 0 012 2v4m-6 9l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
-                <span>Buat Janji Temu</span>
-            `;
-        }
-
-        function showSuccessAlert() {
-        const successAlert = document.getElementById('successAlert');
-        successAlert.classList.remove('hidden');
-
-            // Auto redirect after 5 seconds
-            setTimeout(() => {
-                redirectToIndex();
-            }, 500);
-        }
+        });
 
         function closeAlert() {
-        const successAlert = document.getElementById('successAlert');
-        const alertContainer = successAlert.querySelector('.alert-container');
+            const successAlert = document.getElementById('successAlert');
 
-        alertContainer.classList.add('fade-out');
-        successAlert.classList.add('fade-out');
+            if (!successAlert) {
+                return;
+            }
 
-        setTimeout(() => {
-            successAlert.classList.add('hidden');
-            successAlert.classList.remove('fade-out');
-            alertContainer.classList.remove('fade-out');
+            const alertContainer = successAlert.querySelector('.alert-container');
+
+            if (alertContainer) {
+                alertContainer.classList.add('fade-out');
+            }
+
+            successAlert.classList.add('fade-out');
+
+            setTimeout(() => {
+                successAlert.classList.add('hidden');
+                successAlert.classList.remove('fade-out');
+
+                if (alertContainer) {
+                    alertContainer.classList.remove('fade-out');
+                }
             }, 300);
         }
-
 
         function redirectToIndex() {
             closeAlert();
 
-            // For demo purposes - replace with actual Laravel route
             setTimeout(() => {
-                window.location.href = '{{ route("index") }}'; // Replace with your actual user index route
-                // For demo: window.location.href = '/user/dashboard';
+                window.location.href = '{{ route("index") }}';
             }, 300);
         }
 
-        function showErrorAlert(message) {
-            // Simple error alert (you can enhance this)
-            alert(message);
-        }
-
-        // Close alert when clicking outside
-        document.getElementById('successAlert').addEventListener('click', function(e) {
+        document.getElementById('successAlert')?.addEventListener('click', function(e) {
             if (e.target === this) {
                 closeAlert();
             }
         });
 
-        // Close alert with Escape key
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 const successAlert = document.getElementById('successAlert');
-                if (!successAlert.classList.contains('hidden')) {
+
+                if (successAlert && !successAlert.classList.contains('hidden')) {
                     closeAlert();
                 }
             }

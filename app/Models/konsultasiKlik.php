@@ -15,6 +15,9 @@ class konsultasiKlik extends Model
         'data_diminta',
         'posisi',
         'instansi',
+        'jenis_kelamin',
+        'keperluan_data',
+        'memiliki_akun',
     ];
 
     public function user()

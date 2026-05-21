@@ -4,7 +4,7 @@
 <div class="w-full p-6 bg-gray-100">
     <div class="w-full bg-white rounded-lg shadow-md overflow-hidden">
         <div class="bg-blue-400 p-4">
-            <h2 class="text-xl font-bold text-blue-800">Data Layanan 24 Jam</h2>
+            <h2 class="text-xl font-bold text-blue-800">Data Jam Operasional</h2>
         </div>
 
         <div class="p-6">

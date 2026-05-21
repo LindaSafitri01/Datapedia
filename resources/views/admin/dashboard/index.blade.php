@@ -212,11 +212,88 @@
                 <div class="text-4xl font-bold text-gray-800 counter" data-target="{{ $totalFaq ?? '0' }}">0</div>
                 <div class="text-sm text-gray-500 mt-1">Jumlah FAQ</div>
             </a>
-            </div>
+            </div>            
 
         </div>
+
+        <div class="mt-6 bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+            <div class="p-5 border-b border-slate-100 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <div>
+                    <p class="text-[10px] font-black uppercase tracking-[0.25em] text-blue-600 mb-1">
+                        Statistik Konsultasi
+                    </p>
+
+                    <h2 class="text-lg md:text-xl font-black text-slate-800">
+                        Grafik Konsultasi Bulanan
+                    </h2>
+
+                    <p class="text-xs text-slate-500 mt-1">
+                        Rekap jumlah konsultasi berdasarkan posisi pengunjung.
+                    </p>
+                </div>
+
+                <form method="GET" action="{{ route('dashboard.index') }}">
+                    <select name="tahun"
+                            onchange="this.form.submit()"
+                            class="px-4 py-2 rounded-xl border border-slate-200 bg-slate-50 text-sm font-bold text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-200">
+                        @foreach ($availableYears as $year)
+                            <option value="{{ $year }}" {{ $selectedYear == $year ? 'selected' : '' }}>
+                                {{ $year }}
+                            </option>
+                        @endforeach
+                    </select>
+                </form>
+            </div>
+
+            <div class="p-5">
+                <div id="no-data-message" class="hidden text-center py-10 text-slate-500">
+                    Tidak ada data konsultasi untuk tahun {{ $selectedYear }}.
+                </div>
+
+                <div class="relative w-full bg-slate-50 rounded-2xl border border-slate-100 p-4" style="height: 330px;">
+                    <canvas id="grafikKonsultasi"></canvas>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-2 gap-3 mt-4">                                       
+                    <div class="flex-1 bg-slate-50 rounded-2xl p-4 border border-slate-100 flex items-center justify-between gap-4">
+                        <div>
+                            <p class="text-xs font-semibold text-slate-500">
+                                Total Konsultasi Tahun {{ $selectedYear }}
+                            </p>
+                            <h3 id="totalKonsultasi" class="text-2xl font-black text-slate-800 mt-1">0</h3>
+                        </div>
+
+                        <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 17v-6a2 2 0 012-2h2a2 2 0 012 2v6m-8 0h8m-8 0H5a2 2 0 01-2-2V7a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-4" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="flex-1 bg-slate-50 rounded-2xl p-4 border border-slate-100 flex items-center justify-between gap-4">
+                        <div>
+                            <p class="text-xs font-semibold text-slate-500">
+                                Bulan Tertinggi
+                            </p>
+                            <h3 id="bulanTertinggi" class="text-2xl font-black text-slate-800 mt-1">-</h3>
+                        </div>
+
+                        <div class="w-10 h-10 rounded-xl bg-green-50 text-green-600 flex items-center justify-center">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                            </svg>
+                        </div>
+                    </div>                
+                </div>
+            </div>
+        </div>
+
     </main>
 </div>
+
+
 
 <script>
 // Force grid layout with JavaScript as backup
@@ -444,5 +521,105 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 }
 </style>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const dataKonsultasiBulanan = @json($dataKonsultasiBulanan);
+
+    const canvas = document.getElementById('grafikKonsultasi');
+    const noDataMessage = document.getElementById('no-data-message');
+    const totalElement = document.getElementById('totalKonsultasi');
+    const bulanTertinggiElement = document.getElementById('bulanTertinggi');
+
+    if (!canvas || !dataKonsultasiBulanan) {
+        return;
+    }
+
+    const totalBulanan = dataKonsultasiBulanan.totalBulanan || [];
+    const totalKeseluruhan = totalBulanan.reduce((total, nilai) => total + Number(nilai), 0);
+
+    if (totalKeseluruhan === 0) {
+        canvas.style.display = 'none';
+
+        if (noDataMessage) {
+            noDataMessage.classList.remove('hidden');
+        }
+
+        if (totalElement) {
+            totalElement.textContent = 0;
+        }
+
+        if (bulanTertinggiElement) {
+            bulanTertinggiElement.textContent = '-';
+        }
+
+        return;
+    }
+
+    new Chart(canvas, {
+        type: 'bar',
+        data: {
+            labels: dataKonsultasiBulanan.labels,
+            datasets: dataKonsultasiBulanan.datasets
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                x: {
+                    stacked: true,
+                    title: {
+                        display: true,
+                        text: 'Bulan'
+                    }
+                },
+                y: {
+                    stacked: true,
+                    beginAtZero: true,
+                    ticks: {
+                        precision: 0
+                    },
+                    title: {
+                        display: true,
+                        text: 'Jumlah Konsultasi'
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    position: 'bottom'
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return context.dataset.label + ': ' + context.raw + ' konsultasi';
+                        },
+                        afterBody: function(context) {
+                            const bulanIndex = context[0].dataIndex;
+                            const totalBulan = totalBulanan[bulanIndex] || 0;
+
+                            return 'Total bulan ini: ' + totalBulan;
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    if (totalElement) {
+        totalElement.textContent = totalKeseluruhan;
+    }
+
+    const maxTotal = Math.max(...totalBulanan);
+    const maxIndex = totalBulanan.indexOf(maxTotal);
+
+    if (bulanTertinggiElement && maxIndex !== -1) {
+        bulanTertinggiElement.textContent =
+            dataKonsultasiBulanan.labels[maxIndex] + ' (' + maxTotal + ')';
+    }
+});
+</script>
 
 @endsection

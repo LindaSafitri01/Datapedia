@@ -21,6 +21,8 @@ use App\Models\LayananRekomendasi;
 use App\Models\LayananPojokStatistik;
 use App\Models\LayananWebsite;
 use App\Models\PetugasBerprestasi;
+use App\Models\BidangKeahlian;
+use App\Models\SurveiLayanan;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -33,13 +35,21 @@ class HomeController extends Controller
         $faq = faq::all();
         $maklumat = maklumat::all();
         $standar = standar::all();
-        $layanan = layanan::all();
-        $konsultan = konsultan::all();
+        $layanan = layanan::all();        
         $jamOperasional = JamOperasional::all();
         $userId = session()->get('user_id'); // Gunakan session() helper
+        $konsultan = konsultan::with('bidangKeahlian')
+            ->where('status', 'tersedia')
+            ->get();
+        $bidangKeahlian = BidangKeahlian::where('status', 'aktif')
+            ->orderBy('nama_bidang', 'asc')
+            ->get();
         $janjiTemu = Janjitemu::where('users_id', $userId)
             ->whereIn('jenis', ['online', 'offline'])
             ->latest()
+            ->first();
+        $surveiLayananAktif = SurveiLayanan::where('is_active', true)
+            ->orderBy('tahun', 'desc')
             ->first();
         $today = Carbon::today()->toDateString();
         // Gunakan get() untuk mendapatkan koleksi
@@ -65,15 +75,7 @@ class HomeController extends Controller
             [ 'label' => 'Website BPS Prov Babel','model' => LayananWebsite::class,'column' => 'total_users', ],
         ];
 
-        $bulanSekarang = date('n');
-        $triwulanSekarang = ceil($bulanSekarang / 3);
-        $tahunSekarang = date('Y');
-
-        $petugasBerprestasiTriwulan = PetugasBerprestasi::with('konsultan')
-            ->where('triwulan', $triwulanSekarang)
-            ->where('tahun', $tahunSekarang)
-            ->orderBy('nilai', 'desc')
-            ->get();
+        
 
         foreach ($models as $item) {
             $stats[] = [
@@ -90,9 +92,41 @@ class HomeController extends Controller
             ];
         }     
 
+        $bulanSekarang = date('n');
+        $triwulanSekarang = ceil($bulanSekarang / 3);
+        $tahunSekarang = date('Y');
+
+        if ($triwulanSekarang == 1) {
+            $triwulanTampil = 4;
+            $tahunTampil = $tahunSekarang - 1;
+        } else {
+            $triwulanTampil = $triwulanSekarang - 1;
+            $tahunTampil = $tahunSekarang;
+        }
+
+        $petugasBerprestasiTriwulan = PetugasBerprestasi::with('konsultan')
+            ->where('triwulan', $triwulanTampil)
+            ->where('tahun', $tahunTampil)
+            ->orderBy('nilai', 'desc')
+            ->get();
+
+        $labelTriwulan = [
+            1 => 'Triwulan I',
+            2 => 'Triwulan II',
+            3 => 'Triwulan III',
+            4 => 'Triwulan IV',
+        ];
+
+        $labelTriwulanBerprestasi = $labelTriwulan[$triwulanTampil] ?? 'Triwulan';
+        $tahunPetugasBerprestasi = $tahunTampil;
+
         return view('user.user', compact(
             'faq', 'janjiTemu', 'maklumat', 'standar', 'layanan', 'petugas', 'konsultan', 'jamOperasional',
             'petugasBerprestasiTriwulan',
+            'surveiLayananAktif',
+            'bidangKeahlian',
+            'labelTriwulanBerprestasi',
+            'tahunPetugasBerprestasi',
             'dataBulanan',
             'selectedYear',
             'availableYears',

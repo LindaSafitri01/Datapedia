@@ -4,7 +4,7 @@
 <div class="w-full p-6 bg-gray-100 min-h-screen">
     <div class="w-full  bg-white rounded-lg shadow-md overflow-hidden">
         <div class="bg-blue-300 p-4">
-            <h2 class="text-xl font-bold text-blue-800">Ubah Layanan</h2>
+            <h2 class="text-xl font-bold text-blue-800">Ubah Jam Operasional</h2>
         </div>
 
          @if ($errors->any())

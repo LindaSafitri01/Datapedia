@@ -358,11 +358,11 @@
                     Status Konsultan
                 </a>
 
-        <a href="{{ route('mingguan.index') }}"
+        <!-- <a href="{{ route('mingguan.index') }}"
                     class="mb-3 capitalize font-medium text-sm hover:text-blue-600 transition ease-in-out duration-500">
                     <i class="fad fa-text text-xs mr-2"></i>
                     Petugas Mingguan
-                </a>
+                </a> -->
 
         <a href="{{ route('logoutKonsultan') }}"
                     class="mb-3 capitalize font-medium text-sm hover:text-blue-600 transition ease-in-out duration-500">

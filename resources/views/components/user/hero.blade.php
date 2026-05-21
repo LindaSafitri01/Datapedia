@@ -43,21 +43,29 @@
 
                     @if(session('login_user') && session('user_id'))
                         <a href="{{ route('konsultasi.index') }}"
-                           class="btn-modern flex items-center justify-center px-5 sm:px-6 py-3 rounded-xl text-white font-semibold group text-sm sm:text-base">
-                            <svg class="w-4 h-4 sm:w-5 sm:h-5 mr-2 group-hover:scale-110 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                        class="btn-modern inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 rounded-xl text-white font-semibold group text-sm sm:text-base leading-none">
+
+                            <svg class="w-6 h-6 shrink-0 text-white group-hover:text-[#25D366] group-hover:scale-110 transition-all duration-300"
+                                viewBox="0 0 24 24"
+                                fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.33 4.97L2 22l5.25-1.38a9.86 9.86 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm0 18.16h-.01a8.18 8.18 0 0 1-4.17-1.14l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.4c0-4.54 3.7-8.23 8.24-8.23a8.2 8.2 0 0 1 8.23 8.24c0 4.54-3.7 8.24-8.24 8.24Zm4.51-6.16c-.25-.12-1.46-.72-1.69-.8-.23-.08-.39-.12-.56.12-.16.25-.64.8-.78.96-.14.16-.29.18-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.48-1.38-1.73-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.23.25-.87.85-.87 2.08s.89 2.41 1.02 2.58c.12.16 1.76 2.69 4.27 3.77.6.26 1.07.41 1.43.52.6.19 1.15.16 1.58.1.48-.07 1.46-.6 1.67-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.29Z"/>
                             </svg>
-                            Hubungi Kami
+
+                            <span class="leading-none">Hubungi Kami</span>
                         </a>
                     @else
                         <button onclick="showLoginAlert()"
-                                class="btn-modern flex items-center justify-center px-5 sm:px-6 py-3 rounded-xl text-white font-semibold group text-sm sm:text-base">
-                            <svg class="w-4 h-4 sm:w-5 sm:h-5 mr-2 group-hover:scale-110 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                                class="btn-modern inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 rounded-xl text-white font-semibold group text-sm sm:text-base leading-none">
+
+                            <svg class="w-6 h-6 shrink-0 text-white group-hover:text-[#25D366] group-hover:scale-110 transition-all duration-300"
+                                viewBox="0 0 24 24"
+                                fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.33 4.97L2 22l5.25-1.38a9.86 9.86 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm0 18.16h-.01a8.18 8.18 0 0 1-4.17-1.14l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.4c0-4.54 3.7-8.23 8.24-8.23a8.2 8.2 0 0 1 8.23 8.24c0 4.54-3.7 8.24-8.24 8.24Zm4.51-6.16c-.25-.12-1.46-.72-1.69-.8-.23-.08-.39-.12-.56.12-.16.25-.64.8-.78.96-.14.16-.29.18-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.48-1.38-1.73-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.23.25-.87.85-.87 2.08s.89 2.41 1.02 2.58c.12.16 1.76 2.69 4.27 3.77.6.26 1.07.41 1.43.52.6.19 1.15.16 1.58.1.48-.07 1.46-.6 1.67-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.29Z"/>
                             </svg>
-                            Hubungi Kami
+
+                            <span class="leading-none">Hubungi Kami</span>
                         </button>
                     @endif
 
@@ -75,24 +83,27 @@
 
             <!-- ================= RIGHT ================= -->
             <div class="animate-slideInRight flex justify-center">
-
                 <div class="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xs space-y-4">
 
-                    <!-- CARD 1 -->                    
-                    <div class="hero-info-card p-4 text-center hover:scale-[1.02] transition relative">
+                    <!-- CARD 1 -->
+                    <div class="hero-info-card text-center hover:scale-[1.01] transition bg-blue-800 text-white rounded-xl p-4 max-w-xs mx-auto shadow-lg space-y-3">
+                        <img class="w-24 sm:w-26 md:w-28 mx-auto object-contain" src="{{ asset('image/logo-pst.png') }}" alt="Datapedia Logo">                        
+                        <div class="space-y-1">
+                            <span class="font-black text-blue-300 text-[12px] font-semibold tracking-wider uppercase block">"Siap Membantu Anda"</span>
+                            <h2 class="font-extrabold text-base uppercase leading-tight tracking-wide">
+                                Kerja Amanah Melayani<br>
+                                Dengan <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-white font-black">Ramah</span>
+                            </h2>
+                        </div>
 
-                        <!-- <div class="hero-status-badge hero-status-badge-corner">
-                            <span class="hero-status-dot"></span>
-                            <span>ONLINE 24/7</span>
-                        </div> -->
-
-                        <img class="w-20 sm:w-24 md:w-28 mx-auto animate-float"
-                            src="{{ asset('image/logo-pst.png') }}" alt="Datapedia Logo">
-
-                        <p class="text-white font-semibold mt-2 text-sm sm:text-base">
-                            Siap Membantu Anda
-                        </p>
-                    </div>
+                        <div class="pt-1 border-t border-white/10 text-[8px] font-bold text-blue-200 uppercase flex justify-center gap-x-1 gap-y-0.5 flex-wrap whitespace-nowrap">
+                            <span>Responsive</span><span class="text-cyan-400">•</span>
+                            <span>Adaptive</span><span class="text-cyan-400">•</span>
+                            <span>Measurable</span><span class="text-cyan-400">•</span>
+                            <span>Akuntabel</span><span class="text-cyan-400">•</span>
+                            <span>Harmonis</span>
+                        </div>
+                    </div>                
 
                     <!-- CARD 2 -->
                     <div class="relative group">

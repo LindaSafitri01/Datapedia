@@ -52,7 +52,7 @@
 
         <div class="max-w-7xl mx-auto px-6">
             
-            <div class="flex flex-col items-center text-center mb-16" data-aos="fade-up">                            
+            <div class="flex flex-col items-center text-center mb-3" data-aos="fade-up">                            
                 <h3 class="text-3xl md:text-5xl font-black text-blue-900 leading-[1.1] tracking-tighter mb-6">
                     Kerja Amanah <span class="text-blue-500">Melayani Dengan Ramah</span>
                 </h3>
@@ -61,7 +61,7 @@
                 <div class="flex items-center gap-3 mb-6">
                     <span class="h-[1px] w-8 bg-slate-200"></span>
                     <span class="text-[10px] font-black text-gray-600 uppercase tracking-[0.3em]">Layanan Utama</span>
-                    <span class="h-[1px] w-8 bg-slate-200"></span>
+                    <span class="h-[1px] w-8 bg-slate-200"></span> 
                 </div>
             </div>
 
@@ -80,7 +80,7 @@
                         <h3 class="font-header text-xl font-bold text-slate-900 mb-2">Perpustakaan</h3>
                         <p class="text-blue-600 text-[10px] font-bold uppercase tracking-widest mb-4">Layanan Umum</p>
                         <p class="text-slate-500 text-sm leading-relaxed mb-8">Akses publikasi statistik dari kategori kependudukan hingga pertanian secara digital.</p>
-                        <a href="#" class="action-btn">
+                        <a href="https://webapi.bps.go.id/consumen/88582261b976073c4aee562850e51881?redirect_uri=https%3A%2F%2Fpst.bps.go.id%2Flogin" class="action-btn">
                             <span>Cari Pustaka</span>
                             <svg class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                         </a>
@@ -97,7 +97,7 @@
                         <h3 class="font-header text-xl font-bold text-slate-900 mb-2">Data Mikro</h3>
                         <p class="text-blue-600 text-[10px] font-bold uppercase tracking-widest mb-4">Layanan Umum</p>
                         <p class="text-slate-500 text-sm leading-relaxed mb-8">Penjualan data mikro, publikasi elektronik, dan peta wilayah statistik terlengkap.</p>
-                        <a href="#" class="action-btn">
+                        <a href="https://webapi.bps.go.id/consumen/88582261b976073c4aee562850e51881?redirect_uri=https%3A%2F%2Fpst.bps.go.id%2Flogin" class="action-btn">
                             <span>Beli Data</span>
                             <svg class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                         </a>
@@ -114,7 +114,7 @@
                         <h3 class="font-header text-xl font-bold text-slate-900 mb-2">Konsultasi</h3>
                         <p class="text-blue-600 text-[10px] font-bold uppercase tracking-widest mb-4">Layanan Umum</p>
                         <p class="text-slate-500 text-sm leading-relaxed mb-8">Bantuan metadata, klasifikasi, dan asistensi produk statistik melalui kanal resmi.</p>
-                        <a href="#" class="action-btn">
+                        <a href="https://webapi.bps.go.id/consumen/88582261b976073c4aee562850e51881?redirect_uri=https%3A%2F%2Fpst.bps.go.id%2Flogin" class="action-btn">
                             <span>Ajukan Konsul</span>
                             <svg class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                         </a>
@@ -131,7 +131,7 @@
                         <h3 class="font-header text-xl font-bold text-slate-900 mb-2">Rekomendasi</h3>
                         <p class="text-blue-600 text-[10px] font-bold uppercase tracking-widest mb-4">Layanan Instansi</p>
                         <p class="text-slate-500 text-sm leading-relaxed mb-8">Layanan survei dan pengajuan rekomendasi statistik bagi instansi pemerintah.</p>
-                        <a href="#" class="action-btn">
+                        <a href="https://webapi.bps.go.id/consumen/88582261b976073c4aee562850e51881?redirect_uri=https%3A%2F%2Fpst.bps.go.id%2Flogin" class="action-btn">
                             <span>Minta Akses</span>
                             <svg class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                         </a>
@@ -148,14 +148,14 @@
 
         <div class="max-w-6xl mx-auto px-6">
             
-            <div class="max-w-3xl mx-auto mb-12" data-aos="fade-up">
+            <div class="max-w-3xl mx-auto mb-8" data-aos="fade-up">
                 <div class="relative flex flex-col items-center">                                    
 
                     <div class="text-center mb-4">                       
                         <h3 class="text-3xl md:text-5xl font-black text-blue-900 leading-[1.1] tracking-tighter mb-6">
                             DataFast <span class="text-blue-500">Respon Cepat Tanpa Jarak</span>
                         </h3> 
-                        <div class="h-1 w-12 bg-blue-600 rounded-full mt-3 mb-6 mx-auto"></div>                        
+                        <div class="h-1 w-12 bg-blue-600 rounded-full mt-3 mb-6 mx-auto"></div>
                     </div>
                 </div>
             </div>
@@ -165,7 +165,12 @@
                 {{-- Kartu 1: Tanya Pakar (WhatsApp) --}}
                 <div class="up-consult-card group bg-white border-2 border-slate-100 p-7 rounded-[2.5rem] transition-all duration-500 hover:border-blue-500 hover:shadow-[0_20px_50px_-20px_rgba(16,185,129,0.2)]"data-aos="fade-up" data-aos-delay="100">
                     <div class="w-12 h-12 bg-blue-50 text-blue-500 rounded-2xl flex items-center justify-center mb-6 transition-all duration-500 group-hover:bg-blue-500 group-hover:text-white group-hover:rotate-6">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"/></svg>
+                        <svg class="w-6 h-6 shrink-0 text-[#25D366] group-hover:text-[#25D366] group-hover:scale-110 transition-all duration-300"
+                                viewBox="0 0 24 24"
+                                fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.33 4.97L2 22l5.25-1.38a9.86 9.86 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm0 18.16h-.01a8.18 8.18 0 0 1-4.17-1.14l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.4c0-4.54 3.7-8.23 8.24-8.23a8.2 8.2 0 0 1 8.23 8.24c0 4.54-3.7 8.24-8.24 8.24Zm4.51-6.16c-.25-.12-1.46-.72-1.69-.8-.23-.08-.39-.12-.56.12-.16.25-.64.8-.78.96-.14.16-.29.18-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.48-1.38-1.73-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.23.25-.87.85-.87 2.08s.89 2.41 1.02 2.58c.12.16 1.76 2.69 4.27 3.77.6.26 1.07.41 1.43.52.6.19 1.15.16 1.58.1.48-.07 1.46-.6 1.67-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.29Z"/>
+                        </svg>
                     </div>
                     <h4 class="font-black text-blue-950 text-xl mb-2 tracking-tight italic uppercase">Konsultasi Kilat</h4>
                     <p class="text-slate-500 text-[11px] leading-relaxed mb-8 font-medium italic">Integrasi layanan chat cerdas yang menghubungkan Anda langsung dengan pakar statistik BPS.</p>
@@ -193,7 +198,7 @@
                         </div>
                         
                         <div class="text-right">
-                            <span class="text-[8px] font-black text-blue-600 bg-blue-50 px-2 py-1 rounded-lg uppercase tracking-widest">Waktu Fleksibel</span>
+                            <span class="text-[8px] font-black text-blue-600 bg-blue-50 px-2 py-1 rounded-lg uppercase tracking-widest">Jam Layanan Fleksibel</span>
                         </div>
                     </div>             
                     <h4 class="font-black text-blue-950 text-xl mb-2 tracking-tight italic uppercase">Temu Lintas Waktu</h4>
@@ -202,7 +207,7 @@
                     <div class="flex flex-row gap-2">
                         <div class="flex-[2]"> 
                             @if(session('login_user') && session('user_id'))
-                                <a href="{{ route('janjitemu.online') }}" class="block">
+                                <a href="{{ route('janjitemu.index') }}" class="block">
                                     <button class="w-full p-4 bg-blue-500 text-white rounded-2xl text-[9px] font-black uppercase tracking-tight shadow-lg shadow-blue-50 hover:bg-blue-600 transition-all speak-target flex items-center justify-between" onmouseenter="speakOnHover(this)">
                                         <span>Atur Jadwal</span>
                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
@@ -216,7 +221,7 @@
                             @endif
                         </div>
 
-                        @if ($janjiTemu && in_array($janjiTemu->jenis, ['online', 'offline']))
+                        @if(isset($janjiTemu) && $janjiTemu)
                             <div class="flex-1">
                                 <a href="{{ route('janjitemu.jadwal') }}" class="block h-full">
                                     <button title="Lihat Jadwal Saya" class="w-full h-full p-4 border-2 border-blue-100 text-blue-500 rounded-2xl hover:bg-blue-50 transition-all flex items-center justify-center">
@@ -248,127 +253,438 @@
     </section>
 
     {{-- PETUGAS - Modern List --}}
-    <section x-data="{ selectedBidang: 'all' }" class="up-section up-staff-section py-12 font-sans bg-white">
-    <div class="max-w-6xl mx-auto px-6">
-        
-        {{-- HEADER: Mengikuti Style Ramping & Elegan --}}
-        <div class="flex flex-col items-center justify-center mb-10">
-            <div class="text-center mb-6">
-                <h2 class="text-xl font-black text-[#002B6A] uppercase italic tracking-tighter leading-none">
-                    Direktori <span class="text-blue-500 not-italic">Petugas</span>
-                </h2>
-                <p class="text-[8px] text-slate-400 font-bold uppercase tracking-[0.4em] mt-1">Informasi Publik & Konsultasi</p>
-            </div>
+    <section 
+        x-data="{ 
+            selectedBidang: 'all',
+            selectedBidangName: 'Semua Petugas',
+            filterOpen: false,
 
-            {{-- SECTION BERPRESTASI: Mengikuti Style Minimalis Tajam --}}
-            <div class="w-full max-w-4xl bg-slate-50/50 p-6 rounded-[2.5rem] border border-slate-100">
-                <div class="text-center mb-4">
-                    <div class="inline-flex items-center gap-2 border-b-2 border-blue-100 pb-1 px-4">
-                        <span class="text-yellow-500 text-[10px]">★</span>
-                        <h3 class="text-[10px] font-black text-[#002B6A] uppercase italic tracking-widest">
-                            Petugas <span class="text-blue-600">Berprestasi</span>
-                        </h3>
-                        <span class="text-slate-300 mx-1 text-[8px]">/</span>
-                        <p class="text-[8px] font-bold text-slate-400 uppercase tracking-tighter">Triwulan I</p>
-                    </div>
+            scrollPetugas(direction) {
+                const sliderId = this.selectedBidang === 'all'
+                    ? 'slider-all'
+                    : 'slider-' + this.selectedBidang;
+
+                const slider = document.getElementById(sliderId);
+
+                if (slider) {
+                    slider.scrollBy({
+                        left: direction * slider.clientWidth,
+                        behavior: 'smooth'
+                    });
+                }
+            },
+
+            pilihBidang(slug, nama) {
+                this.selectedBidang = slug;
+                this.selectedBidangName = nama;
+                this.resetSlider();
+            },
+
+            resetSlider() {
+                this.filterOpen = false;
+
+                this.$nextTick(() => {
+                    const sliders = document.querySelectorAll('[data-petugas-slider]');
+                    sliders.forEach((slider) => {
+                        slider.scrollTo({
+                            left: 0,
+                            behavior: 'smooth'
+                        });
+                    });
+                });
+            }
+        }"
+        class="up-section up-staff-section py-8 font-sans bg-white"
+    >
+        <div class="max-w-6xl mx-auto px-6">
+
+            {{-- HEADER --}}
+            <div class="flex flex-col items-center justify-center mb-4"data-aos="fade-up">
+                <div class="text-center mb-2">
+                    <h2 class="text-xl font-black text-[#002B6A] tracking-tighter leading-none">
+                        Direktori <span class="text-blue-500">Petugas</span>
+                    </h2>
                 </div>
 
-                <div class="flex flex-wrap justify-center gap-3">
-                    @foreach ($petugasBerprestasiTriwulan as $item)
-                        <div class="relative flex items-center bg-white border border-slate-100 p-2 pr-6 rounded-xl transition-all duration-300 group hover:border-blue-500 hover:shadow-md">
-                            <div class="relative flex-shrink-0">
-                                <div class="absolute -inset-1 bg-slate-50 rounded-lg group-hover:bg-blue-50 transition-colors"></div>
-                                <img src="{{ Storage::url($item->konsultan->gambar) }}" 
-                                     class="relative w-14 h-14 rounded-lg object-cover border border-slate-100 shadow-sm transition-transform group-hover:scale-105">
-                                <div class="absolute -top-1 -left-1 w-5 h-5 bg-[#002B6A] rounded-md flex items-center justify-center border border-white shadow-sm">
-                                    <span class="text-yellow-400 text-[8px]">★</span>
-                                </div>
+                {{-- PETUGAS BERPRESTASI --}}
+                <div class="up-achievement-panel">
+                    <div class="up-achievement-header">
+                        <div class="up-achievement-title-wrap">
+                            <span class="up-achievement-star">★</span>
+
+                            <div class="up-achievement-title">
+                                Petugas <span>Berprestasi</span>
                             </div>
 
-                            <div class="pl-4">
-                                <div class="flex items-center gap-2 mb-0.5">
-                                    <span class="text-[7px] font-black text-blue-600 uppercase italic border border-blue-200 px-1 rounded">
-                                        SKOR: {{ $item->nilai ?? '0' }}
+                            <span class="up-achievement-separator">/</span>
+
+                            <div class="up-achievement-period">
+                                {{ $labelTriwulanBerprestasi ?? 'Triwulan' }} {{ $tahunPetugasBerprestasi ?? date('Y') }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="up-achievement-list">
+                        @forelse ($petugasBerprestasiTriwulan as $item)
+                            <div class="up-achievement-card group">
+
+                                {{-- Foto --}}
+                                <div class="up-achievement-photo-wrap">
+                                    <div class="up-achievement-photo-frame">
+                                        @if($item->konsultan && $item->konsultan->gambar)
+                                            <img src="{{ Storage::url($item->konsultan->gambar) }}"
+                                                alt="{{ $item->konsultan->nama }}"
+                                                class="up-achievement-photo">
+                                        @else
+                                            <div class="up-achievement-photo-empty">
+                                                {{ substr($item->konsultan->nama ?? 'P', 0, 1) }}
+                                            </div>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                {{-- Info --}}
+                                <div class="up-achievement-info">
+                                    <div class="up-achievement-label">
+                                        Best Performance
+                                    </div>
+
+                                    <div class="up-achievement-name">
+                                        {{ $item->konsultan->nama ?? 'Petugas' }}
+                                    </div>
+
+                                    <div class="up-achievement-position">
+                                        {{ $item->konsultan->posisi ?? '-' }}
+                                    </div>
+
+                                    @if($item->sertifikat)
+                                        <div class="up-achievement-certificate-wrap">
+                                            <a href="{{ Storage::url($item->sertifikat) }}"
+                                            target="_blank"
+                                            class="up-achievement-certificate">
+                                                <span>Lihat Sertifikat</span>
+
+                                                <svg class="up-achievement-certificate-icon"
+                                                    fill="none"
+                                                    stroke="currentColor"
+                                                    viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round"
+                                                        stroke-linejoin="round"
+                                                        stroke-width="3"
+                                                        d="M13 7l5 5m0 0l-5 5m5-5H6">
+                                                    </path>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    @endif
+                                </div>
+
+                                {{-- Medali --}}
+                                <div class="up-achievement-medal">
+                                    <div class="up-achievement-medal-shape">
+                                        <svg class="up-achievement-ribbon" viewBox="0 0 40 40" fill="none">
+                                            <path d="M12 0L20 15L28 0H12Z" fill="#002B6A" />
+                                            <path d="M15 0L20 10L25 0H15Z" fill="#3B82F6" />
+                                        </svg>
+
+                                        <div class="up-achievement-medal-circle-wrap">
+                                            <div class="up-achievement-medal-circle">
+                                                <div class="up-achievement-medal-inner"></div>
+                                                <span class="up-achievement-medal-star">★</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <span class="up-achievement-medal-period">
+                                        {{ $labelTriwulanBerprestasi ?? 'Triwulan' }}
+                                        <br>
+                                        {{ $tahunPetugasBerprestasi ?? date('Y') }}
                                     </span>
                                 </div>
-                                <h4 class="text-[13px] font-black text-[#002B6A] uppercase italic leading-tight tracking-tight">
-                                    {{ $item->konsultan->nama }}
-                                </h4>
-                                <p class="text-[9px] text-slate-500 font-bold uppercase italic leading-none group-hover:text-blue-600 mt-1">
-                                    {{ $item->konsultan->posisi }}
-                                </p>
+
                             </div>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-        </div>
-
-        {{-- FILTER & DAFTAR PETUGAS: Tetap Sesuai Struktur Asli (Logic Alpine.js) --}}
-        <div class="flex flex-col md:flex-row gap-10">
-            {{-- Filter Bidang --}}
-            <div class="md:w-1/4">
-                <h3 class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-6">Filter Bidang</h3>
-                <div class="flex flex-col gap-1">
-                    <button @click="selectedBidang = 'all'" 
-                        :class="selectedBidang === 'all' ? 'bg-blue-50 text-blue-700 border-blue-100' : 'text-slate-500 border-transparent hover:bg-gray-50'"
-                        class="px-4 py-3 rounded-xl text-xs font-bold transition-all border text-left flex items-center justify-between group">
-                        <span>Semua Bidang</span>
-                        <span class="bg-white px-2 py-0.5 rounded-md text-[9px] border border-gray-100 group-hover:border-blue-200">{{ $konsultan->count() }}</span>
-                    </button>
-                    
-                    @php $uniqueKeahlian = $konsultan->pluck('keahlian')->unique(); @endphp
-                    @foreach ($uniqueKeahlian as $keahlian)
-                    <button @click="selectedBidang = '{{ $keahlian }}'"
-                        :class="selectedBidang === '{{ $keahlian }}' ? 'bg-blue-50 text-blue-700 border-blue-100' : 'text-slate-500 border-transparent hover:bg-gray-50'"
-                        class="px-4 py-3 rounded-xl text-xs font-bold transition-all border text-left flex items-center justify-between group uppercase tracking-tight">
-                        <span>{{ $keahlian }}</span>
-                        <span class="bg-white px-2 py-0.5 rounded-md text-[9px] border border-gray-100 group-hover:border-blue-200">
-                            {{ $konsultan->where('keahlian', $keahlian)->count() }}
-                        </span>
-                    </button>
-                    @endforeach
+                        @empty
+                            <div class="up-achievement-empty">
+                                Awaiting Achievement Data
+                            </div>
+                        @endforelse
+                    </div>
                 </div>
             </div>
 
-            {{-- Grid Staff --}}
-            <div class="md:w-2/3 max-w-2xl">
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    @foreach ($konsultan as $item)
-                    <div x-show="selectedBidang === 'all' || selectedBidang === '{{ $item->keahlian }}'"
-                        x-transition:enter="transition ease-out duration-200"
-                        x-transition:enter-start="opacity-0 scale-95"
-                        x-transition:enter-end="opacity-100 scale-100"
-                        class="up-staff-card bg-white border border-gray-100 p-3 rounded-2xl hover:shadow-lg hover:shadow-slate-200/50 hover:border-blue-200 transition-all flex items-center gap-3 group">
-                        
-                        <div class="relative flex-shrink-0">
-                            <img src="{{ Storage::url($item->gambar) }}" 
-                                class="w-12 h-12 rounded-xl object-cover shadow-sm group-hover:shadow-blue-100 transition-all">
-                        </div>
+            {{-- FILTER + DAFTAR PETUGAS --}}
+            <div class="flex flex-col md:flex-row gap-8" data-aos="fade-up" data-aos-delay="100">
 
-                        <div class="flex-1 min-w-0">
-                            <div class="flex items-center gap-1.5 mb-1">
-                                <span class="w-1.5 h-1.5 bg-blue-500 rounded-full"></span>
-                                <span class="text-[8px] font-black text-blue-600 uppercase tracking-widest leading-none">
-                                    {{ $item->keahlian }}
+                {{-- FILTER BIDANG --}}
+                <div class="md:w-1/4">
+                    <div class="mb-4">
+                        <h3 class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-2">
+                            Filter Bidang
+                        </h3>
+
+                        <p class="text-[11px] text-slate-400 font-medium leading-relaxed">
+                            Pilih bidang petugas untuk menampilkan daftar sesuai keahlian.
+                        </p>
+                    </div>
+
+                    <div class="relative" @click.outside="filterOpen = false">
+                        <button 
+                            type="button"
+                            @click="filterOpen = !filterOpen"
+                            class="w-full bg-white border border-blue-100 rounded-2xl p-4 text-left shadow-sm hover:border-blue-200 hover:bg-blue-50/40 transition-all"
+                        >
+                            <div class="flex items-center justify-between gap-3">
+                                <div class="min-w-0">
+                                    <span class="block text-[9px] font-black text-blue-600 uppercase tracking-widest mb-1">
+                                        Bidang Terpilih
+                                    </span>
+
+                                    <span class="block text-xs font-black text-slate-700 uppercase truncate"
+                                        x-text="selectedBidangName">
+                                    </span>
+                                </div>
+
+                                <div class="w-8 h-8 rounded-xl bg-blue-50 text-blue-700 flex items-center justify-center border border-blue-100">
+                                    <svg class="w-4 h-4 transition-transform duration-300"
+                                        :class="filterOpen ? 'rotate-180' : ''"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="3"
+                                            d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </button>
+
+                        <div 
+                            x-show="filterOpen"
+                            x-cloak
+                            x-transition:enter="transition ease-out duration-200"
+                            x-transition:enter-start="opacity-0 translate-y-2 scale-95"
+                            x-transition:enter-end="opacity-100 translate-y-0 scale-100"
+                            x-transition:leave="transition ease-in duration-150"
+                            x-transition:leave-start="opacity-100 translate-y-0 scale-100"
+                            x-transition:leave-end="opacity-0 translate-y-2 scale-95"
+                            class="absolute z-40 mt-2 w-full bg-white border border-slate-100 rounded-2xl shadow-xl p-2"
+                        >
+                            {{-- Semua Petugas --}}
+                            <button 
+                                type="button"
+                                @click="pilihBidang('all', 'Semua Petugas')"
+                                :class="selectedBidang === 'all' ? 'bg-blue-50 text-blue-700 border-blue-100' : 'text-slate-500 border-transparent hover:bg-gray-50'"
+                                class="w-full px-4 py-3 rounded-xl text-xs font-bold transition-all border text-left flex items-center justify-between group"
+                            >
+                                <span>Semua Petugas</span>
+
+                                <span class="bg-white px-2 py-0.5 rounded-md text-[9px] border border-gray-100 group-hover:border-blue-200">
+                                    {{ $konsultan->count() }}
                                 </span>
-                            </div>
+                            </button>
 
-                            <h4 class="text-[13px] font-bold text-slate-900 truncate tracking-tight">
-                                {{ $item->nama }}
-                            </h4>
+                            {{-- Bidang Keahlian --}}
+                            @foreach ($bidangKeahlian as $bidang)
+                                @php
+                                    $slugBidang = \Illuminate\Support\Str::slug($bidang->nama_bidang);
 
-                            <p class="text-[10px] text-slate-400 font-medium truncate">
-                                {{ $item->posisi }}
-                            </p>
+                                    $jumlahPetugasBidang = $konsultan->filter(function ($item) use ($bidang) {
+                                        return $item->bidangKeahlian->contains('id', $bidang->id);
+                                    })->count();
+                                @endphp
+
+                                <button 
+                                    type="button"
+                                    @click="pilihBidang(@js($slugBidang), @js($bidang->nama_bidang))"
+                                    :class="selectedBidang === @js($slugBidang) ? 'bg-blue-50 text-blue-700 border-blue-100' : 'text-slate-500 border-transparent hover:bg-gray-50'"
+                                    class="w-full px-4 py-3 rounded-xl text-xs font-bold transition-all border text-left flex items-center justify-between group uppercase tracking-tight"
+                                >
+                                    <span class="truncate">{{ $bidang->nama_bidang }}</span>
+
+                                    <span class="bg-white px-2 py-0.5 rounded-md text-[9px] border border-gray-100 group-hover:border-blue-200">
+                                        {{ $jumlahPetugasBidang }}
+                                    </span>
+                                </button>
+                            @endforeach
                         </div>
                     </div>
+                </div>
+
+                {{-- DAFTAR PETUGAS --}}
+                <div class="md:w-3/4 min-w-0">
+
+                    <div class="flex items-center justify-between gap-4 mb-3">
+                        <div>
+                            <h3 class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">
+                                Daftar Petugas
+                            </h3>
+
+                            <p class="text-[10px] text-slate-400 font-medium mt-1">
+                                Geser untuk melihat petugas lainnya.
+                            </p>
+                        </div>
+
+                        <div class="flex items-center gap-2">
+                            <button 
+                                type="button"
+                                @click="scrollPetugas(-1)"
+                                class="w-8 h-8 rounded-lg bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-100 flex items-center justify-center transition-all"
+                                aria-label="Sebelumnya"
+                            >
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="3"
+                                        d="M15 19l-7-7 7-7" />
+                                </svg>
+                            </button>
+
+                            <button 
+                                type="button"
+                                @click="scrollPetugas(1)"
+                                class="w-8 h-8 rounded-lg bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-100 flex items-center justify-center transition-all"
+                                aria-label="Selanjutnya"
+                            >
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="3"
+                                        d="M9 5l7 7-7 7" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    {{-- SLIDER SEMUA PETUGAS --}}
+                    <div x-show="selectedBidang === 'all'">
+                        <div 
+                            id="slider-all"
+                            data-petugas-slider
+                            class="flex overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory pb-2"
+                        >
+                            @foreach ($konsultan->chunk(9) as $slide)
+                                <div class="min-w-full snap-start pr-1">
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+                                        @foreach ($slide as $item)
+                                            <div class="up-staff-card bg-white border border-gray-100 p-2 rounded-xl hover:shadow-md hover:shadow-slate-200/50 hover:border-blue-200 transition-all flex items-center gap-2 group w-full">
+                                                <div class="relative flex-shrink-0">
+                                                    @if($item->gambar)
+                                                        <img 
+                                                            src="{{ Storage::url($item->gambar) }}"
+                                                            alt="{{ $item->nama }}"
+                                                            class="w-10 h-10 rounded-lg object-cover shadow-sm group-hover:shadow-blue-100 transition-all"
+                                                        >
+                                                    @else
+                                                        <div class="w-10 h-10 rounded-lg bg-blue-50 text-blue-700 flex items-center justify-center text-xs font-bold shadow-sm">
+                                                            ?
+                                                        </div>
+                                                    @endif
+                                                </div>
+
+                                                <div class="flex-1 min-w-0">
+                                                    <h4 class="text-[12px] font-bold text-slate-900 truncate tracking-tight leading-tight">
+                                                        {{ $item->nama }}
+                                                    </h4>
+
+                                                    <p class="text-[9px] text-slate-400 font-medium truncate mt-0.5 leading-tight">
+                                                        {{ $item->posisi }}
+                                                    </p>
+
+                                                    <div class="flex flex-wrap gap-1 mt-1">
+                                                        @forelse($item->bidangKeahlian as $bidangItem)
+                                                            <span class="inline-block px-1.5 py-0.5 bg-blue-50 text-blue-600 rounded-md text-[7px] font-bold uppercase tracking-tight leading-none">
+                                                                {{ $bidangItem->nama_bidang }}
+                                                            </span>
+                                                        @empty
+                                                            <span class="text-[7px] font-bold text-slate-400">
+                                                                -
+                                                            </span>
+                                                        @endforelse
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+
+                    {{-- SLIDER PER BIDANG --}}
+                    @foreach ($bidangKeahlian as $bidang)
+                        @php
+                            $slugBidang = \Illuminate\Support\Str::slug($bidang->nama_bidang);
+
+                            $petugasBidang = $konsultan->filter(function ($item) use ($bidang) {
+                                return $item->bidangKeahlian->contains('id', $bidang->id);
+                            });
+                        @endphp
+
+                        <div x-show="selectedBidang === @js($slugBidang)">
+                            <div 
+                                id="slider-{{ $slugBidang }}"
+                                data-petugas-slider
+                                class="flex overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory pb-2"
+                            >
+                                @forelse ($petugasBidang->chunk(9) as $slide)
+                                    <div class="min-w-full snap-start pr-1">
+                                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+                                            @foreach ($slide as $item)
+                                                <div class="up-staff-card bg-white border border-gray-100 p-2 rounded-xl hover:shadow-md hover:shadow-slate-200/50 hover:border-blue-200 transition-all flex items-center gap-2 group w-full">
+                                                    <div class="relative flex-shrink-0">
+                                                        @if($item->gambar)
+                                                            <img 
+                                                                src="{{ Storage::url($item->gambar) }}"
+                                                                alt="{{ $item->nama }}"
+                                                                class="w-10 h-10 rounded-lg object-cover shadow-sm group-hover:shadow-blue-100 transition-all"
+                                                            >
+                                                        @else
+                                                            <div class="w-10 h-10 rounded-lg bg-blue-50 text-blue-700 flex items-center justify-center text-xs font-bold shadow-sm">
+                                                                ?
+                                                            </div>
+                                                        @endif
+                                                    </div>
+
+                                                    <div class="flex-1 min-w-0">
+                                                        <h4 class="text-[12px] font-bold text-slate-900 truncate tracking-tight leading-tight">
+                                                            {{ $item->nama }}
+                                                        </h4>
+
+                                                        <p class="text-[9px] text-slate-400 font-medium truncate mt-0.5 leading-tight">
+                                                            {{ $item->posisi }}
+                                                        </p>
+
+                                                        <div class="flex flex-wrap gap-1 mt-1">
+                                                            @forelse($item->bidangKeahlian as $bidangItem)
+                                                                <span class="inline-block px-1.5 py-0.5 bg-blue-50 text-blue-600 rounded-md text-[7px] font-bold uppercase tracking-tight leading-none">
+                                                                    {{ $bidangItem->nama_bidang }}
+                                                                </span>
+                                                            @empty
+                                                                <span class="text-[7px] font-bold text-slate-400">
+                                                                    -
+                                                                </span>
+                                                            @endforelse
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                @empty
+                                    <div class="min-w-full py-6 text-center">
+                                        <p class="text-xs text-slate-400 font-semibold">
+                                            Belum ada petugas pada bidang ini.
+                                        </p>
+                                    </div>
+                                @endforelse
+                            </div>
+                        </div>
                     @endforeach
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     {{-- LAYANAN 24 JAM --}}
     <section id="layanan-24" class="up-section up-service24-section py-16 overflow-hidden">
@@ -651,9 +967,20 @@
                             Mutu layanan kami berkembang melalui suara Anda. Partisipasi Anda sangat berarti bagi kami dalam melakukan perbaikan berkelanjutan demi menjamin kualitas layanan yang prima.
                         </p>
 
-                        <button class="inline-flex items-center justify-center bg-white text-[#002B6A] font-black px-8 py-5 rounded-xl hover:bg-blue-50 transition-all duration-300 shadow-lg shadow-black/10 uppercase tracking-[0.18em] text-[12px] hover:scale-[1.02]">
-                            Isi Survei Sekarang
-                        </button>
+                        @if($surveiLayananAktif)
+                            <a href="{{ $surveiLayananAktif->link }}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center justify-center bg-white text-[#002B6A] font-black px-8 py-5 rounded-xl hover:bg-blue-50 transition-all duration-300 shadow-lg shadow-black/10 uppercase tracking-[0.18em] text-[12px] hover:scale-[1.02]">
+                                Isi Survei Sekarang
+                            </a>
+                        @else
+                            <button type="button"
+                                    disabled
+                                    class="inline-flex items-center justify-center bg-white/70 text-[#002B6A]/60 font-black px-8 py-5 rounded-xl cursor-not-allowed shadow-lg shadow-black/10 uppercase tracking-[0.18em] text-[12px]">
+                                Survei Belum Tersedia
+                            </button>
+                        @endif
 
                     </div>
 

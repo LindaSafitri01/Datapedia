@@ -25,4 +25,9 @@ class jadwal extends Model
     {
         return $this->belongsTo(konsultan::class);
     }
+
+    public function user()
+    {
+        return $this->belongsTo(akunuser::class, 'users_id');
+    }
 }

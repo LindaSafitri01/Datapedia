@@ -13,7 +13,7 @@
                         DATA<span>PEDIA</span>
                     </h1>
                     <p class="site-navbar-tagline">
-                        Kerja Amanah Melayani Dengan Ramah
+                        BPS Provinsi Kepulauan Bangka Belitung
                     </p>
                 </div>
             </div>

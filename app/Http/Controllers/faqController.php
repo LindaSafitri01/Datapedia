@@ -12,8 +12,12 @@ class faqController extends Controller
         return view('admin.faq.index', compact('faq'));
     }
 
-    public function pesan(){
-        $faq = konsultasiKlik::latest()->get();
+    public function pesan()
+    {
+        $faq = konsultasiKlik::with('user')
+            ->orderBy('clicked_at', 'desc')
+            ->get();
+
         return view('admin.faq.pesan', compact('faq'));
     }
 

@@ -192,12 +192,45 @@
                 @csrf
 
                 <div>
-                    <label for="instansi" class="text-sm font-medium text-gray-700">Instansi Asal</label>
+                    <label for="email" class="text-sm font-medium text-gray-700">Email</label>
+
+                    <input
+                        id="email"
+                        name="email"
+                        type="email"
+                        value="{{ old('email', $user->email ?? '') }}"
+                        placeholder="Contoh: abcd@example.com"
+                        class="w-full px-3 py-3 mt-1 border-2 border-gray-200 rounded-lg focus:border-primary focus:ring-0 focus:outline-none transition-colors"
+                        required
+                    />
+
+                    @error('email')
+                        <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+                    @enderror
+                </div>
+                <div>
+                    <label for="jenis_kelamin" class="text-sm font-medium text-gray-700">Jenis Kelamin</label><span class="text-red-500">*</span>
+                    <select
+                        id="jenis_kelamin"
+                        name="jenis_kelamin"
+                        class="w-full px-3 py-3 mt-1 border-2 border-gray-200 rounded-lg focus:border-primary focus:ring-0 focus:outline-none transition-colors"
+                        required
+                    >
+                        <option value="" disabled selected>-- Pilih Jenis Kelamin --</option>
+                        <option value="laki_laki">Laki-laki</option>
+                        <option value="perempuan">Perempuan</option>
+                    </select>
+                    @error('jenis_kelamin')
+                        <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+                    @enderror
+                </div>                    
+                <div>
+                    <label for="instansi" class="text-sm font-medium text-gray-700">Instansi/Universitas</label><span class="text-red-500">*</span>
                     <input
                         id="instansi"
                         name="instansi"
                         type="text"
-                        placeholder="Contoh: Universitas Sriwijaya"
+                        placeholder="Contoh: BPS, Universitas Indonesia, dll."
                         class="w-full px-3 py-3 mt-1 border-2 border-gray-200 rounded-lg focus:border-primary focus:ring-0 focus:outline-none transition-colors"
                         required
                     />
@@ -207,7 +240,7 @@
                 </div>
 
                 <div>
-                    <label for="data_diminta" class="text-sm font-medium text-gray-700">Pertanyaan Yang Ingin Ditanyakan</label>
+                    <label for="data_diminta" class="text-sm font-medium text-gray-700">Data yang Dibutuhkan</label><span class="text-red-500">*</span>
                     <textarea
                         id="data_diminta"
                         name="data_diminta"
@@ -222,7 +255,49 @@
                 </div>
 
                 <div>
-                    <label for="posisi" class="text-sm font-medium text-gray-700">Posisi Anda</label>
+                    <label class="text-sm font-semibold text-gray-700">
+                        Keperluan Penggunaan Data <span class="text-red-500">*</span>
+                    </label>
+
+                    @php
+                        $keperluanOptions = [
+                            'Tugas Sekolah/Kuliah',
+                            'Perencanaan',                            
+                            'Skripsi/Tesis/Disertasi',
+                            'Evaluasi',                            
+                            'Penelitian',
+                            'Diskusi',
+                            'Lainnya',
+                        ];
+                    @endphp
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-3">
+                        @foreach ($keperluanOptions as $option)
+                            <label class="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
+                                <input
+                                    type="checkbox"
+                                    name="keperluan_data[]"
+                                    value="{{ $option }}"
+                                    class="w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                                    {{ in_array($option, old('keperluan_data', [])) ? 'checked' : '' }}
+                                >
+
+                                <span>{{ $option }}</span>
+                            </label>
+                        @endforeach
+                    </div>
+
+                    @error('keperluan_data')
+                        <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+                    @enderror
+
+                    @error('keperluan_data.*')
+                        <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+                    @enderror
+                </div>
+
+                <div>
+                    <label for="posisi" class="text-sm font-medium text-gray-700">Posisi Anda</label><span class="text-red-500">*</span>
                     <select
                         id="posisi"
                         name="posisi"
@@ -230,15 +305,33 @@
                         required
                     >
                         <option value="" disabled selected>-- Pilih Posisi --</option>
-                        <option value="masyarakat">Masyarakat</option>
-                        <option value="mahasiswa">Mahasiswa</option>
-                        <option value="pegawai_pemerintah">Pegawai Pemerintah</option>
+                        <option value="asn">Aparatur Sipil Negara</option>
+                        <option value="karyawan_swasta">Karyawan Swasta</option>
+                        <option value="wiraswasta">Wiraswasta</option>
+                        <option value="peneliti">Peneliti</option>
+                        <option value="pelajar_mahasiswa">Pelajar/Mahasiswa</option>
+                        <option value="lainnya">Lainnya</option>
                     </select>
                     @error('posisi')
                         <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
                     @enderror
                 </div>
-
+                <div>
+                    <label for="memiliki_akun" class="text-sm font-medium text-gray-700">Memiliki Akun PST BPS</label><span class="text-red-500">*</span>
+                    <select
+                        id="memiliki_akun"
+                        name="memiliki_akun"
+                        class="w-full px-3 py-3 mt-1 border-2 border-gray-200 rounded-lg focus:border-primary focus:ring-0 focus:outline-none transition-colors"
+                        required
+                    >
+                        <option value="" disabled selected>-- Pilih --</option>
+                        <option value="ya">Ya</option>
+                        <option value="tidak">Tidak</option>
+                    </select>
+                    @error('memiliki_akun')
+                        <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+                    @enderror
+                </div>
                 <div class="pt-4">
                     <button
                         onclick="this.disabled=true;this.form.submit();"

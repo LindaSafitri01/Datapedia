@@ -38,6 +38,9 @@ use App\Http\Controllers\Statistik\KonsultasiStatistikController;
 use App\Http\Controllers\Statistik\PojokStatistikController;
 use App\Http\Controllers\Statistik\RekomendasiController;
 use App\Http\Controllers\Statistik\WebsiteController;
+use App\Http\Controllers\BidangKeahlianController;
+use App\Http\Controllers\Admin\FooterItemController;
+use App\Http\Controllers\Admin\SurveiLayananController;
 use App\Models\janjitemu;
 
 Route::middleware(LoggedInKonsultan::class)->group(function () {
@@ -51,12 +54,12 @@ Route::middleware(LoggedInUser::class)->group(function () {
     Route::post('/klik-konsultasi', [konsultasiController::class, 'store'])->name('konsultasi.klik');
     Route::get('/user/jumlah', [konsultasiController::class, 'jumlah'])->name('konsultasi.jumlah');
     Route::get('/user/konsultasi', [konsultasiController::class, 'index'])->name('konsultasi.index');
-    Route::resource('profile', profileController::class)->except(['show']);
-    Route::resource('janjitemu', janjitemuController::class)->except(['show']);
+    Route::resource('profile', profileController::class)->except(['show']);    
     Route::get('/tentang', [TentangController::class, 'index'])->name('tentang');
-    Route::get('/janjitemu/online', [janjitemuController::class, 'indexOnline'])->name('janjitemu.online');
+    // Route::get('/janjitemu/online', [janjitemuController::class, 'indexOnline'])->name('janjitemu.online');
     Route::get('/janjitemu/jadwal', [janjitemuController::class, 'indexJadwal'])->name('janjitemu.jadwal');
     Route::put('/janjitemu/{id}/batal', [janjitemuController::class, 'batal'])->name('janjitemu.batal');
+    Route::resource('janjitemu', janjitemuController::class)->except(['show']);
 
 });
 
@@ -78,6 +81,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/dashboard', [dashboardController::class, 'index'])->name('dashboard.index');
 
         Route::resource('jam-operasional', JamOperasionalController::class);
+        Route::resource('bidang-keahlian', BidangKeahlianController::class)->except(['show']);
         Route::resource('jadwal', jadwalController::class)->except(['show']);
 
         Route::post('/jadwal/{id}/tolak', [JadwalController::class, 'tolak'])->name('jadwal.tolak');
@@ -97,8 +101,8 @@ Route::prefix('admin')->group(function () {
         Route::resource('maklumat', maklumatController::class)->except(['show']);
         Route::resource('layanan', layananController::class)->except(['show']);
         Route::resource('petugas', petugasController::class)->except(['show']);
-        Route::resource('grafik', grafikPosisiController::class)->except(['show']);
-
+        Route::resource('footer-item', FooterItemController::class)->except(['show']);
+        Route::resource('survei-layanan', SurveiLayananController::class)->except(['show']);
         Route::resource('petugas-berprestasi', PetugasBerprestasiController::class)->except(['show']);
         
         Route::prefix('statistik')->name('statistik.')->group(function () {
