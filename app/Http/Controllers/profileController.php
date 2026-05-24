@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\akunuser;
 use App\Models\janjitemu;
+use App\Models\Antrian;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -33,8 +34,14 @@ class profileController extends Controller
             ->latest()
             ->take(3)
             ->get();
+        
+        $antrianHariIni = Antrian::with('layanan')
+            ->where('user_id', $userId)
+            ->whereDate('tanggal_antrian', now()->toDateString())
+            ->latest()
+            ->get();
 
-        return view('user.profile', compact('user', 'jadwalUser'));
+        return view('user.profile', compact('user', 'jadwalUser', 'antrianHariIni'));
     }
 
     /**

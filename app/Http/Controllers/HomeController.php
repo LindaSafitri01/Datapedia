@@ -12,7 +12,7 @@ use App\Models\JamOperasional;
 use App\Models\janjitemu;
 use App\Models\konsultan;
 use App\Models\standar;
-use App\Models\maklumat;
+use App\Models\ManajemenMutu;
 use App\Models\petugas;
 use App\Models\LayananPerpustakaan;
 use App\Models\LayananKonsultasi;
@@ -33,7 +33,7 @@ class HomeController extends Controller
     {
         
         $faq = faq::all();
-        $maklumat = maklumat::all();
+        $manajemenMutu = ManajemenMutu::all();
         $standar = standar::all();
         $layanan = layanan::all();        
         $jamOperasional = JamOperasional::all();
@@ -121,7 +121,7 @@ class HomeController extends Controller
         $tahunPetugasBerprestasi = $tahunTampil;
 
         return view('user.user', compact(
-            'faq', 'janjiTemu', 'maklumat', 'standar', 'layanan', 'petugas', 'konsultan', 'jamOperasional',
+            'faq', 'janjiTemu', 'manajemenMutu', 'standar', 'layanan', 'petugas', 'konsultan', 'jamOperasional',
             'petugasBerprestasiTriwulan',
             'surveiLayananAktif',
             'bidangKeahlian',

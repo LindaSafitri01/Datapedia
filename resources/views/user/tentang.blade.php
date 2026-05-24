@@ -18,7 +18,7 @@
         ];
     })->values();
 
-    $dokumenMutu = collect($maklumat ?? [])->map(function ($item) {
+    $dokumenMutu = collect($manajemenMutu ?? [])->map(function ($item) {
         $file = $item->file ?? '';
         $url = $file ? Storage::url($file) : '#';
         $ext = strtolower(pathinfo($file, PATHINFO_EXTENSION));

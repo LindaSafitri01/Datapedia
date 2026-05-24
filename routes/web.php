@@ -1,11 +1,10 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminKonsultasiController;
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\layananController;
-use App\Http\Controllers\maklumatController;
+use App\Http\Controllers\ManajemenMutuController;
 use App\Http\Controllers\faqController;
 use App\Http\Controllers\grafikPosisiController;
 use App\Http\Controllers\HomeController;
@@ -41,7 +40,9 @@ use App\Http\Controllers\Statistik\WebsiteController;
 use App\Http\Controllers\BidangKeahlianController;
 use App\Http\Controllers\Admin\FooterItemController;
 use App\Http\Controllers\Admin\SurveiLayananController;
-use App\Models\janjitemu;
+use App\Http\Controllers\AntrianUserController;
+use App\Http\Controllers\Admin\AntrianAdminController;
+// use App\Models\janjitemu;
 
 Route::middleware(LoggedInKonsultan::class)->group(function () {
 Route::get('/logoutKonsultan', [KonsultanLogin::class, 'logoutKonsultan'])->name('logoutKonsultan');
@@ -61,6 +62,13 @@ Route::middleware(LoggedInUser::class)->group(function () {
     Route::put('/janjitemu/{id}/batal', [janjitemuController::class, 'batal'])->name('janjitemu.batal');
     Route::resource('janjitemu', janjitemuController::class)->except(['show']);
 
+    Route::get('/antrian/{kode_booking}/pdf', [AntrianUserController::class, 'pdf'])->name('antrian.pdf');
+    Route::resource('antrian', AntrianUserController::class)
+        ->only(['index', 'store', 'show'])
+        ->parameters(['antrian' => 'kode_booking']);
+    
+
+
 });
 
 Route::prefix('admin')->group(function () {
@@ -79,6 +87,17 @@ Route::prefix('admin')->group(function () {
 
         Route::get('/user', [UserLogin::class, 'dataUser'])->name('dataUser');
         Route::get('/dashboard', [dashboardController::class, 'index'])->name('dashboard.index');
+        
+        Route::post('/antrian/{antrian}/cetak', [AntrianAdminController::class, 'cetak'])->name('admin.antrian.cetak');
+        Route::post('/antrian/{antrian}/panggil', [AntrianAdminController::class, 'panggil'])->name('admin.antrian.panggil');
+        Route::post('/antrian/{antrian}/selesai', [AntrianAdminController::class, 'selesai'])->name('admin.antrian.selesai');
+        Route::get('/antrian/riwayat', [AntrianAdminController::class, 'riwayat'])->name('admin.antrian.riwayat');
+
+        Route::resource('antrian', AntrianAdminController::class)
+            ->only(['index'])
+            ->names([
+                'index' => 'admin.antrian.index',
+            ]);
 
         Route::resource('jam-operasional', JamOperasionalController::class);
         Route::resource('bidang-keahlian', BidangKeahlianController::class)->except(['show']);
@@ -98,7 +117,7 @@ Route::prefix('admin')->group(function () {
         Route::resource('admin', AdminController::class)->except(['show']);
         Route::resource('adminKonsultasi', AdminKonsultasiController::class)->except('show');
 
-        Route::resource('maklumat', maklumatController::class)->except(['show']);
+        Route::resource('manajemen-mutu', ManajemenMutuController::class)->except(['show']);
         Route::resource('layanan', layananController::class)->except(['show']);
         Route::resource('petugas', petugasController::class)->except(['show']);
         Route::resource('footer-item', FooterItemController::class)->except(['show']);

@@ -75,7 +75,7 @@ class konsultasiController extends Controller
     $pesan .= "📌 Posisi Sebagai: {$labelPosisi[$validated['posisi']]}\n";
 
     // Nomor bot WhatsApp
-    $botPhoneNumber = '6285355609323'; //ganti dengan nomor bot WA yang digunakan
+    $botPhoneNumber = '628117816340'; //ganti dengan nomor bot WA yang digunakan
 
     // Redirect ke WA Web dengan pesan
     // $url = "https://api.whatsapp.com/send?phone=$botPhoneNumber&text=" . urlencode($pesan);

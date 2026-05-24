@@ -243,7 +243,7 @@
                     <h4 class="font-black text-blue-950 text-xl mb-2 tracking-tight italic uppercase">Reservasi Cerdas</h4>
                     <p class="text-slate-500 text-[11px] leading-relaxed mb-8 font-medium italic">Efisiensi kunjungan langsung melalui reservasi antrean digital untuk pelayanan prima tanpa antre lama.</p>
                     
-                    <a href="https://webapps.bps.go.id/babel/antrianbabel/frontend/web/index.php?r=site/index#services" class="flex items-center justify-between w-full p-4 bg-blue-500 text-white rounded-2xl text-[9px] font-black uppercase tracking-widest shadow-lg shadow-blue-50 hover:bg-blue-600 transition-all speak-target" onmouseenter="speakOnHover(this)">
+                    <a href="{{ route('antrian.index') }}" class="flex items-center justify-between w-full p-4 bg-blue-500 text-white rounded-2xl text-[9px] font-black uppercase tracking-widest shadow-lg shadow-blue-50 hover:bg-blue-600 transition-all speak-target" onmouseenter="speakOnHover(this)">
                         <span>Pesan Antrean</span>
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                     </a>

@@ -127,24 +127,24 @@
             </a>
             </div>
 
-            <!-- Card 6: Maklumat -->
+            <!-- Card 6: Manajemen Mutu -->
             <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-purple-500" style="
                 width: 100% !important;
                 box-sizing: border-box !important;
                 display: block !important;
                 float: none !important;
             ">
-            <a href="{{ route('maklumat.index') }}">
+            <a href="{{ route('manajemen-mutu.index') }}">
                 <div class="flex items-center justify-between mb-2">
                     <div class="text-gray-500">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path>
                         </svg>
                     </div>
-                    <div class="text-xs font-semibold text-purple-600 bg-purple-100 px-2 py-1 rounded-full">MAKLUMAT</div>
+                    <div class="text-xs font-semibold text-purple-600 bg-purple-100 px-2 py-1 rounded-full">Manajemen Mutu</div>
                 </div>
-                <div class="text-4xl font-bold text-gray-800 counter" data-target="{{ $totalMaklumat ?? '0' }}">0</div>
-                <div class="text-sm text-gray-500 mt-1">Jumlah Maklumat Layanan</div>
+                <div class="text-4xl font-bold text-gray-800 counter" data-target="{{ $totalManajemenMutu ?? '0' }}">0</div>
+                <div class="text-sm text-gray-500 mt-1">Jumlah Manajemen Mutu</div>
             </a>
             </div>
 

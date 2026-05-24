@@ -59,8 +59,15 @@
                       class="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 py-3 px-4 rounded-xl flex items-center justify-center gap-2 text-sm font-bold transition">
                   Jadwal Janji Temu
               </button>
+
+              <button type="button"
+                    id="btnAntrianProfil"
+                    onclick="showProfileTab('antrian')"
+                    class="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 py-3 px-4 rounded-xl flex items-center justify-center gap-2 text-sm font-bold transition">
+                  Antrean Hari Ini
+              </button>
           </div>
-          </div>
+          </div> 
         </div>
       </div>
 
@@ -393,6 +400,152 @@
                   </div>
               @endif
           </div>
+
+          {{-- PANEL ANTREAN HARI INI --}}
+        <div id="profileAntrianPanel" class="hidden profile-card rounded-3xl p-6 bg-white shadow">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-5">
+                <div>
+                    <h3 class="text-xl font-black text-gray-800">
+                        Antrean Online Hari Ini
+                    </h3>
+
+                    <p class="text-sm text-gray-500 mt-1">
+                        Daftar nomor antrean online yang Anda ambil hari ini.
+                    </p>
+                </div>
+
+                <a href="{{ route('antrian.index') }}"
+                class="inline-flex items-center justify-center px-4 py-2 bg-blue-100 hover:bg-blue-200 text-blue-700 rounded-xl text-sm font-bold transition">
+                    Ambil Antrean
+                </a>
+            </div>
+
+            @if(isset($antrianHariIni) && $antrianHariIni->count())
+                <div class="rounded-2xl border border-gray-100 overflow-hidden max-h-[340px] overflow-y-auto">
+                    <table class="w-full table-fixed text-xs sm:text-sm">
+                        <thead class="sticky top-0 z-10">
+                            <tr class="bg-blue-50 text-blue-900 border-b border-blue-100">
+                                <th class="w-[8%] px-3 py-3 text-left text-[10px] font-black uppercase tracking-widest">
+                                    No
+                                </th>
+                                <th class="w-[22%] px-3 py-3 text-left text-[10px] font-black uppercase tracking-widest">
+                                    Nomor
+                                </th>
+                                <th class="w-[30%] px-3 py-3 text-left text-[10px] font-black uppercase tracking-widest">
+                                    Layanan
+                                </th>
+                                <th class="w-[22%] px-3 py-3 text-left text-[10px] font-black uppercase tracking-widest">
+                                    Status
+                                </th>
+                                <th class="w-[18%] px-3 py-3 text-center text-[10px] font-black uppercase tracking-widest">
+                                    Detail
+                                </th>
+                            </tr>
+                        </thead>
+
+                        <tbody class="divide-y divide-gray-100 bg-white">
+                            @foreach($antrianHariIni as $item)
+                                @php
+                                    $status = strtolower($item->status ?? 'pending');
+
+                                    $labelStatus = [
+                                        'pending' => 'Belum Datang',
+                                        'printed' => 'Belum Dipanggil',
+                                        'called' => 'Sedang Dilayani',
+                                        'served' => 'Selesai',
+                                        'expired' => 'Kedaluwarsa',
+                                        'cancelled' => 'Dibatalkan',
+                                    ];
+
+                                    $statusClass = [
+                                        'pending' => 'bg-yellow-100 text-yellow-700',
+                                        'printed' => 'bg-blue-100 text-blue-700',
+                                        'called' => 'bg-purple-100 text-purple-700',
+                                        'served' => 'bg-green-100 text-green-700',
+                                        'expired' => 'bg-gray-100 text-gray-700',
+                                        'cancelled' => 'bg-red-100 text-red-700',
+                                    ][$status] ?? 'bg-gray-100 text-gray-700';
+                                @endphp
+
+                                <tr class="hover:bg-blue-50/40 transition">
+                                    <td class="px-3 py-3 text-gray-400 font-bold">
+                                        {{ $loop->iteration }}
+                                    </td>
+
+                                    <td class="px-3 py-3">
+                                        <div class="inline-flex px-3 py-1.5 bg-blue-50 text-blue-700 rounded-xl border border-blue-100">
+                                            <span class="text-base font-black">
+                                                {{ $item->nomor_antrian ?? '-' }}
+                                            </span>
+                                        </div>
+
+                                        <p class="text-[11px] text-gray-400 mt-1">
+                                            {{ $item->created_at ? \Carbon\Carbon::parse($item->created_at)->format('H:i') . ' WIB' : '-' }}
+                                        </p>
+                                    </td>
+
+                                    <td class="px-3 py-3">
+                                        <p class="font-black text-gray-800 truncate">
+                                            {{ $item->layanan->nama_layanan ?? '-' }}
+                                        </p>
+
+                                        <p class="text-[11px] text-gray-400 truncate mt-0.5">
+                                            Kode {{ $item->layanan->kode_layanan ?? '-' }}
+                                        </p>
+                                    </td>
+
+                                    <td class="px-3 py-3">
+                                        <span class="inline-flex px-2 py-1 rounded-full text-[10px] font-black uppercase {{ $statusClass }}">
+                                            {{ $labelStatus[$status] ?? 'Tidak Diketahui' }}
+                                        </span>
+
+                                        @if($status === 'pending')
+                                            <p class="text-[10px] text-gray-400 mt-1">
+                                                Belum cetak di kantor
+                                            </p>
+                                        @elseif($status === 'printed')
+                                            <p class="text-[10px] text-blue-500 mt-1">
+                                                Menunggu dipanggil
+                                            </p>
+                                        @elseif($status === 'called')
+                                            <p class="text-[10px] text-purple-500 mt-1">
+                                                Meja: {{ $item->nomor_meja ?? '-' }}
+                                            </p>
+                                        @endif
+                                    </td>
+
+                                    <td class="px-3 py-3 text-center">
+                                        <a href="{{ route('antrian.show', $item->kode_booking) }}"
+                                        class="px-3 py-1.5 bg-blue-100 hover:bg-blue-200 text-blue-700 rounded-xl text-[11px] font-black transition">
+                                            Lihat
+                                        </a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+
+                <p class="text-xs text-gray-400 mt-3">
+                    Nomor antrean online hanya berlaku pada hari pengambilan nomor.
+                </p>
+            @else
+                <div class="bg-gray-50 border border-dashed border-gray-200 rounded-2xl p-6 text-center">
+                    <h4 class="text-base font-black text-gray-800 mb-2">
+                        Belum ada antrean hari ini
+                    </h4>
+
+                    <p class="text-sm text-gray-500 mb-4">
+                        Anda belum mengambil nomor antrean online hari ini.
+                    </p>
+
+                    <a href="{{ route('antrian.index') }}"
+                    class="inline-flex bg-primary hover:bg-blue-800 text-white px-5 py-2.5 rounded-xl text-sm font-bold transition">
+                        Ambil Antrean Online
+                    </a>
+                </div>
+            @endif
+        </div>
       </div>
     </div>
   </main>
@@ -400,22 +553,32 @@
     function showProfileTab(tab) {
         const infoPanel = document.getElementById('profileInfoPanel');
         const jadwalPanel = document.getElementById('profileJadwalPanel');
+        const antrianPanel = document.getElementById('profileAntrianPanel');
 
         const btnInfo = document.getElementById('btnInfoProfil');
         const btnJadwal = document.getElementById('btnJadwalProfil');
+        const btnAntrian = document.getElementById('btnAntrianProfil');
+
+        const inactiveClass = 'w-full bg-gray-100 hover:bg-gray-200 text-gray-700 py-3 px-4 rounded-xl flex items-center justify-center gap-2 text-sm font-bold transition';
+        const activeClass = 'w-full bg-primary text-white py-3 px-4 rounded-xl flex items-center justify-center gap-2 text-sm font-bold transition';
+
+        infoPanel.classList.add('hidden');
+        jadwalPanel.classList.add('hidden');
+        antrianPanel.classList.add('hidden');
+
+        btnInfo.className = inactiveClass;
+        btnJadwal.className = inactiveClass;
+        btnAntrian.className = inactiveClass;
 
         if (tab === 'jadwal') {
-            infoPanel.classList.add('hidden');
             jadwalPanel.classList.remove('hidden');
-
-            btnInfo.className = 'w-full bg-gray-100 hover:bg-gray-200 text-gray-700 py-3 px-4 rounded-xl flex items-center justify-center gap-2 text-sm font-bold transition';
-            btnJadwal.className = 'w-full bg-primary text-white py-3 px-4 rounded-xl flex items-center justify-center gap-2 text-sm font-bold transition';
+            btnJadwal.className = activeClass;
+        } else if (tab === 'antrian') {
+            antrianPanel.classList.remove('hidden');
+            btnAntrian.className = activeClass;
         } else {
-            jadwalPanel.classList.add('hidden');
             infoPanel.classList.remove('hidden');
-
-            btnJadwal.className = 'w-full bg-gray-100 hover:bg-gray-200 text-gray-700 py-3 px-4 rounded-xl flex items-center justify-center gap-2 text-sm font-bold transition';
-            btnInfo.className = 'w-full bg-primary text-white py-3 px-4 rounded-xl flex items-center justify-center gap-2 text-sm font-bold transition';
+            btnInfo.className = activeClass;
         }
     }
 </script>

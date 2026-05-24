@@ -343,12 +343,12 @@
           <i class="fad fa-chart-pie text-xs mr-2"></i>
           konsultan statistik
         </a>
-
+<!-- 
         <a href="{{ route('petugas.index') }}"
           class="mb-3 capitalize font-medium text-sm hover:text-blue-600 transition ease-in-out duration-500">
           <i class="fad fa-chart-pie text-xs mr-2"></i>
           Petugas Minggu Ini
-        </a>
+        </a> -->
 
         <a href="{{ route('petugas-berprestasi.index') }}"
           class="mb-3 capitalize font-medium text-sm hover:text-blue-600 transition ease-in-out duration-500">
@@ -387,10 +387,10 @@
           standar pelayanan
         </a>
 
-        <a href="{{ route('maklumat.index') }}"
+        <a href="{{ route('manajemen-mutu.index') }}"
           class="mb-3 capitalize font-medium text-sm hover:text-blue-600 transition ease-in-out duration-500">
           <i class="fad fa-comments text-xs mr-2"></i>
-          maklumat layanan
+          Manajemen Mutu
         </a>
 
         <a href="{{ route('jam-operasional.index') }}"
@@ -523,8 +523,19 @@
           Frequently Ask Question
         </a>
 
-        <p class="uppercase text-xs text-blue-600 mb-4 mt-4 tracking-wider">Navigasi</p>
+        <p class="uppercase text-xs text-blue-600 mb-4 mt-4 tracking-wider">Manajemen Antrian</p>
+        <a href="{{ route('admin.antrian.index') }}"
+          class="mb-3 capitalize font-medium text-sm hover:text-blue-600 transition ease-in-out duration-500">
+          <i class="fad fa-text text-xs mr-2"></i>
+          Kelola Antrian
+        </a>
+        <a href="{{ route('admin.antrian.riwayat') }}"
+          class="mb-3 capitalize font-medium text-sm hover:text-blue-600 transition ease-in-out duration-500">
+          <i class="fad fa-text text-xs mr-2"></i>
+          Riwayat Antrian
+        </a>
 
+        <p class="uppercase text-xs text-blue-600 mb-4 mt-4 tracking-wider">Navigasi</p>
         <!-- link -->
         <a href="{{ route('footer-item.index') }}"
           class="mb-3 capitalize font-medium text-sm hover:text-blue-600 transition ease-in-out duration-500">

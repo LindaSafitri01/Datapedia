@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use App\Models\jadwal;
 use App\Models\konsultan;
 use App\Models\layanan;
-use App\Models\maklumat;
+use App\Models\ManajemenMutu;
 use App\Models\petugas;
 use App\Models\standar;
 use App\Models\konsultasiKlik;
@@ -23,7 +23,7 @@ class dashboardController extends Controller
         $totalKonsultan = konsultan::count();
         $totalJadwal = jadwal::count();
         $totalLayanan = layanan::count();
-        $totalMaklumat = maklumat::count();
+        $totalManajemenMutu = ManajemenMutu::count();
         $totalStandar = standar::count();
         $totalPetugas = petugas::count();
         $totalFaq = faq::count();
@@ -106,7 +106,7 @@ class dashboardController extends Controller
             'totalBulanan' => $totalBulanan,
         ];
         
-        return view('admin.dashboard.index', compact('totalAdmin','totalJadwal','totalUser','totalKonsultan','totalLayanan','totalMaklumat','totalStandar','totalPetugas','totalFaq','selectedYear','availableYears','dataKonsultasiBulanan'));
+        return view('admin.dashboard.index', compact('totalAdmin','totalJadwal','totalUser','totalKonsultan','totalLayanan','totalManajemenMutu','totalStandar','totalPetugas','totalFaq','selectedYear','availableYears','dataKonsultasiBulanan'));
     }
 
 }
